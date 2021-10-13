@@ -5,7 +5,7 @@ var RandomPoem;
     let predicates = ["verschüttet", "mag", "kauft", "trinkt", "klaut", "öffnet"];
     let objects = ["die Cola", "das Bier", "das Red Bull", "den Wein", "das Wasser", "den Saft"];
     for (let index = 5; index >= 1; index--) {
-        console.log(index);
+        //console.log(index);
         let showPoem = getVerse(subjects, predicates, objects);
         console.log(showPoem);
     }
