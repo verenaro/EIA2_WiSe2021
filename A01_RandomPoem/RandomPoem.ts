@@ -5,7 +5,7 @@ namespace RandomPoem {
      
     
     for (let index: number = 5; index >= 1; index--) {
-    console.log(index);
+    //console.log(index);
 
     let showPoem: string = getVerse (subjects, predicates, objects);
     console.log(showPoem);
