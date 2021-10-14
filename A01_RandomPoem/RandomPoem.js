@@ -9,7 +9,7 @@ var RandomPoem;
         let showPoem = getVerse(subjects, predicates, objects);
         console.log(showPoem);
     }
-    function getVerse(subjects, predicates, objects) {
+    function getVerse(_subjects, _predicates, _objects) {
         let word1 = Math.floor(Math.random() * subjects.length);
         let word2 = Math.floor(Math.random() * predicates.length);
         let word3 = Math.floor(Math.random() * objects.length);

@@ -11,7 +11,7 @@ namespace RandomPoem {
     console.log(showPoem);
    }
 
-    function getVerse (  subjects: string[], predicates: string[], objects: string[]): string {
+    function getVerse (  _subjects: string[], _predicates: string[], _objects: string[]): string {
     let word1: number = Math.floor(Math.random() * subjects.length);
     let word2: number = Math.floor(Math.random() * predicates.length);
     let word3: number = Math.floor(Math.random() * objects.length);
