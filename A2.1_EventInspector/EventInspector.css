@@ -1,0 +1,33 @@
+html,
+body {
+    height: 100%;
+    margin: 0 8px;
+    background-color: cadetblue;
+}
+
+#div0 {
+    padding: 50px;
+    background-color: cornsilk;
+    border: thin solid darkgreen;
+    width: 42%;
+    height: 400px;
+    float: left;
+}
+
+#div1 {
+    padding: 50px;
+    background-color: cornsilk;
+    border: thin solid darkgreen;
+    width: 42%;
+    height: 400px;
+    float: right;
+}
+
+span {
+    position: fixed;
+    padding: 30px;
+    background-color: darkred;
+    border: thin solid black;
+    width: 140px;
+    height: 60px;
+}
