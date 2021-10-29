@@ -16,13 +16,18 @@ var EventInspector;
         document.addEventListener("click", logInfo);
     }
     function setInfoBox(_event) {
-        let x = _event.offsetX;
-        let y = _event.offsetY;
+        let x = _event.pageX;
+        let y = _event.pageY;
         let mousePosition = document.querySelector("span");
         let mouse0 = _event.target;
-        mousePosition.innerHTML = mouse0 + "";
+        mousePosition.innerHTML = "target:" + mouse0 + "" + "<br>" + "x:" + x + "<br>" + "y:" + y;
+        mousePosition.style.left = x + 3 + "px";
+        mousePosition.style.top = y + 3 + "px";
     }
     function logInfo(_event) {
+        console.log(_event.target);
+        console.log(_event.currentTarget);
+        console.log(_event);
     }
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=EventInspector.js.map

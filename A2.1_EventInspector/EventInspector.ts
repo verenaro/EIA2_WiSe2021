@@ -20,15 +20,20 @@ namespace EventInspector {
         document.addEventListener("click", logInfo);
     }
     function setInfoBox(_event: MouseEvent): void {
-        let x: number = _event.offsetX;
-        let y: number = _event.offsetY;
+        let x: number = _event.pageX;
+        let y: number = _event.pageY;
         let mousePosition: HTMLElement = <HTMLElement>document.querySelector("span");
         let mouse0: HTMLElement = <HTMLElement>_event.target;
-        mousePosition.innerHTML = mouse0 + "";
+        mousePosition.innerHTML = "target:" + mouse0 + "" + "<br>" + "x:" + x + "<br>" + "y:" + y;
 
-
+        mousePosition.style.left = x + 3 + "px";
+        mousePosition.style.top = y + 3 + "px";
     }
     function logInfo(_event: Event): void {
+
+        console.log(_event.target);
+        console.log(_event.currentTarget);
+        console.log(_event);
 
     }
 

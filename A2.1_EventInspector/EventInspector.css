@@ -2,13 +2,13 @@ html,
 body {
     height: 100%;
     margin: 0 8px;
-    background-color: cadetblue;
+    background-color: lightsteelblue;
 }
 
 #div0 {
     padding: 50px;
-    background-color: cornsilk;
-    border: thin solid darkgreen;
+    background-color: lightcyan;
+    border: thin solid lightgrey;
     width: 42%;
     height: 400px;
     float: left;
@@ -16,8 +16,8 @@ body {
 
 #div1 {
     padding: 50px;
-    background-color: cornsilk;
-    border: thin solid darkgreen;
+    background-color: lightcyan;
+    border: thin solid lightgray;
     width: 42%;
     height: 400px;
     float: right;
@@ -26,8 +26,24 @@ body {
 span {
     position: fixed;
     padding: 30px;
-    background-color: darkred;
-    border: thin solid black;
+    background-color: lightgray;
+    border: thin solid lightblue;
     width: 140px;
     height: 60px;
+}
+
+button {
+    width: 150px;
+    height: 60px;
+    background-color: lightblue;
+    border-radius: 10px;
+    border-color: lightgray;
+    font-family: monospace;
+    color: lightseagreen;
+    font-size: x-large;
+}
+
+h1 {
+    font-family: monospace;
+    color: lightseagreen;
 }
