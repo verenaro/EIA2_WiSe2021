@@ -5,6 +5,7 @@ var EventInspector;
     function handleLoad(_event) {
         let mouse = document.querySelector("#div0");
         let mouse0 = document.querySelector("#div1");
+        //let button: HTMLElement = <HTMLElement>document.querySelector("button");
         mouse.addEventListener("keyup", logInfo);
         mouse.addEventListener("click", logInfo);
         mouse0.addEventListener("keyup", logInfo);
@@ -14,6 +15,8 @@ var EventInspector;
         document.body.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
         document.addEventListener("click", logInfo);
+        //   button.addEventListener("click", clickButton);
+        //  document.addEventListener("click" clickButton);
     }
     function setInfoBox(_event) {
         let x = _event.pageX;
@@ -29,5 +32,6 @@ var EventInspector;
         console.log(_event.currentTarget);
         console.log(_event);
     }
+    // function clickButton (_event:CustomEvent): void {
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=EventInspector.js.map

@@ -4,6 +4,7 @@ namespace EventInspector {
     function handleLoad(_event: Event): void {
         let mouse: HTMLElement = <HTMLElement>document.querySelector("#div0");
         let mouse0: HTMLElement = <HTMLElement>document.querySelector("#div1");
+        //let button: HTMLElement = <HTMLElement>document.querySelector("button");
 
         mouse.addEventListener("keyup", logInfo);
         mouse.addEventListener("click", logInfo);
@@ -18,6 +19,11 @@ namespace EventInspector {
 
         document.addEventListener("keyup", logInfo);
         document.addEventListener("click", logInfo);
+
+        //   button.addEventListener("click", clickButton);
+        //  document.addEventListener("click" clickButton);
+
+
     }
     function setInfoBox(_event: MouseEvent): void {
         let x: number = _event.pageX;
@@ -37,7 +43,14 @@ namespace EventInspector {
 
     }
 
+    // function clickButton (_event:CustomEvent): void {
+
 }
+
+
+
+
+
 
 
 
