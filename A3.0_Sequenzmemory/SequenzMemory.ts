@@ -2,8 +2,9 @@
 Aufgabe: <L3.0>
 Name: <Verena Rothweiler>
 Matrikel: <270156>
-Datum: <Datum der letzten Bearbeitung>
+Datum: <13.11.21.>
 Quellen: <Neslisah Koc>
+Leider funktioniert noch nicht alles, tut uns leid
 */
 namespace Sequenzmemory {
 
