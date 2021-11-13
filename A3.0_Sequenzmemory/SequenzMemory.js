@@ -10,18 +10,22 @@ var Sequenzmemory;
 (function (Sequenzmemory) {
     window.addEventListener("load", handleLoad);
     let letters;
-    let letterArray;
-    let showCards = 0;
+    let buildCards = 0;
     let showCardsArray = [];
-    let nodeList;
     let checkLast = [];
+    let gamefield;
+    let formData;
+    let cardsize;
+    let backgroundcolor;
+    let cardcolor;
+    let font;
+    let fontcolor;
     function handleLoad(_event) {
         console.log("handleLoad");
         letters = document.getElementById("Button1");
-        letters.addEventListener("click", promptLetters);
-        let fieldsets = document.querySelectorAll("fieldset");
+        letters.addEventListener("click", enterTerm);
         let showCards = document.querySelector(".start");
-        showCards.addEventListener("click", main);
+        showCards.addEventListener("click", enterTerm);
         const targetDiv = document.getElementById("settings");
         const btn = document.getElementById("Button1");
         const title2 = document.getElementById("title2");
@@ -36,6 +40,7 @@ var Sequenzmemory;
             }
         };
         // Install listeners on fieldsets
+        let fieldsets = document.querySelectorAll("fieldset");
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
             fieldset.addEventListener("change", handleChange);
@@ -53,15 +58,21 @@ var Sequenzmemory;
         if (target.type == "checkbox")
             console.log("Checked: " + target.name + " = " + target.checked);
     }
-    let formData;
-    let cardsize;
-    let backgroundcolor;
-    let cardcolor;
-    let fontcolor;
-    let font;
-    function createCard(_cardContent) {
-        let card = document.createElement("div");
-        card.innerHTML = "<p>" + _cardContent + "</p>";
+    function enterTerm(_event) {
+        var a = prompt("Enter some text", "");
+        if (a != null) {
+            let arr = a.split("");
+            shuffle(arr);
+            console.log(arr);
+        }
+    }
+    function showCards(_input) {
+        gamefield = document.createElement("div");
+        gamefield.style.backgroundColor = formData.get("background")?.toString();
+        let card = document.createElement("span");
+        let body = document.querySelector("body");
+        body.appendChild(gamefield);
+        card.innerHTML = _input;
         card.classList.add("card");
         card.classList.add("hidden");
         showCardsArray.push(card);
@@ -85,8 +96,8 @@ var Sequenzmemory;
     function flipCard(_event) {
         let target = _event.target;
         if (target.classList.contains("card")) {
-            showCards++;
-            if (!(showCards > 2) && target.classList.contains("hidden") && target != showCardsArray[0]) {
+            buildCards++;
+            if (!(buildCards > 2) && target.classList.contains("hidden") && target != showCardsArray[0]) {
                 if (target.classList.contains("hidden")) {
                     target.classList.remove("hidden");
                     target.classList.add("open");
@@ -94,15 +105,15 @@ var Sequenzmemory;
                 }
             }
             else {
-                showCards--;
+                buildCards--;
             }
-            if (showCards == 2) {
+            if (buildCards == 2) {
                 setTimeout(checkCard, 500);
             }
         }
     }
     function checkCard() {
-        if (showCardsArray[0].innerHTML == letterArray[1].innerHTML) {
+        if (showCardsArray[0].innerHTML == showCardsArray[1].innerHTML) {
             for (let i = 0; i < 2; i++) {
                 showCardsArray[i].classList.remove("open");
                 showCardsArray[i].classList.add("done");
@@ -110,13 +121,13 @@ var Sequenzmemory;
             checkLast.splice(0, 2);
         }
         else {
-            for (let i = 0; i < letterArray.length; i++) {
+            for (let i = 0; i < showCardsArray.length; i++) {
                 showCardsArray[i].classList.remove("open");
                 showCardsArray[i].classList.add("hidden");
             }
         }
         showCardsArray = [];
-        showCards = 0;
+        buildCards = 0;
         checkWin();
     }
     function checkWin() {
@@ -124,43 +135,18 @@ var Sequenzmemory;
             alert("You won!");
         }
     }
-    function shuffleArray(_array) {
-        for (var i = _array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = _array[i];
-            _array[i] = _array[j];
-            _array[j] = temp;
+    // tslint:disable-next-line: no-any
+    function shuffle(array) {
+        // tslint:disable-next-line: no-any
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
         }
-        return _array;
-    }
-    function main(_event) {
-        let fieldset = document.querySelector(".fsAdjustment");
-        if (fieldset.classList.contains("visible")) {
-            fieldset.classList.remove("visible");
-            fieldset.classList.add("is-hidden");
-        }
-        formData = new FormData(document.forms[0]);
-        console.log(FormData);
-        cardsize = Number(FormData.get("Slider"));
-        backgroundcolor = FormData.get("BGColor");
-        cardcolor = FormData.get("CColor");
-        fontcolor = FormData.get("FColor");
-        font = FormData.get("Radiogroup");
-        for (let i = 0; i; i++) {
-            createCard(letterArray[i]);
-            createCard(letterArray[i]);
-        }
-        shuffleArray(cardArray);
-        for (let i = 0; i < cardArray.length; i++) {
-            let user = document.getElementById("user");
-            user.appendChild(cardArray[i]);
-        }
-    }
-    function promptLetters(_event) {
-        var a = prompt("Enter some text", "");
-        if (a != null) {
-            document.getElementById("para").innerHTML = a;
-        }
+        return array;
     }
 })(Sequenzmemory || (Sequenzmemory = {}));
 //# sourceMappingURL=SequenzMemory.js.map

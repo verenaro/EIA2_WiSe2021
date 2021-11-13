@@ -25,3 +25,12 @@ h2 {
     padding: 30px;
     border: linen dotted;
 }
+
+p {
+    text-align: center;
+}
+
+span {
+    display: grid;
+    text-align: center;
+}
