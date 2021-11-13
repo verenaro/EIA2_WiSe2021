@@ -1,0 +1,27 @@
+#settings {
+    background-color: lightskyblue;
+    text-align: center;
+    font-family: monospace;
+    color: gray;
+    visibility: visible;
+}
+
+h1 {
+    color: lightskyblue;
+    font-family: monospace;
+    text-align: center;
+}
+
+h2 {
+    color: lightslategray;
+    font-family: monospace;
+    text-align: center;
+}
+
+#Button1 {
+    color: grey;
+    font-family: monospace;
+    background-color: lightpink;
+    padding: 30px;
+    border: linen dotted;
+}
