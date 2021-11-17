@@ -9,7 +9,8 @@ Leider funktioniert noch nicht alles, tut uns leid
 namespace Sequenzmemory {
 
     window.addEventListener("load", handleLoad);
-    let letters: HTMLInputElement;
+    let letters: HTMLElement; //Eingabe
+    let arr: string; // gemischte Eingabe
     let buildCards: number = 0;
     let showCardsArray: HTMLElement[] = [];
     let checkLast: HTMLElement[] = [];
@@ -28,7 +29,8 @@ namespace Sequenzmemory {
         letters = <HTMLInputElement>document.getElementById("Button1");
         letters.addEventListener("click", enterTerm);
         let showCards: HTMLElement = <HTMLElement>document.querySelector(".start");
-        showCards.addEventListener("click", enterTerm);
+        showCards.addEventListener("click", showCards);
+
 
         const targetDiv: HTMLElement = document.getElementById("settings");
         const btn: HTMLElement = document.getElementById("Button1");
@@ -43,15 +45,9 @@ namespace Sequenzmemory {
             }
         };
 
-        // Install listeners on fieldsets
-        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.querySelectorAll("fieldset");
-        for (let i: number = 0; i < fieldsets.length; i++) {
-            let fieldset: HTMLFieldSetElement = fieldsets[i];
-            fieldset.addEventListener("change", handleChange);
-            fieldset.addEventListener("input", handleChange);
-
-        }
+        
     }
+
     function handleChange(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log();
@@ -68,15 +64,18 @@ namespace Sequenzmemory {
 
 
     function enterTerm(_event: Event): void {
-        var a: string = prompt("Enter some text", "");
+        let a: string = prompt("Enter some text", "");
         if (a != null) {
             let arr: string[] = a.split("");
             shuffle(arr);
             console.log(arr);
 
+
         }
+        showCards();
+
     }
-    function showCards(_input: string): void {
+    function showCards(): void {
         gamefield = document.createElement("div");
         gamefield.style.backgroundColor = <string>formData.get("background")?.toString();
         let card: HTMLSpanElement = document.createElement("span");
@@ -85,7 +84,7 @@ namespace Sequenzmemory {
         body.appendChild(gamefield);
 
 
-        card.innerHTML = _input;
+        card.innerHTML = arr;
         card.classList.add("card");
         card.classList.add("hidden");
 
@@ -170,6 +169,7 @@ namespace Sequenzmemory {
         return array;
     }
 }
+
 
 
 

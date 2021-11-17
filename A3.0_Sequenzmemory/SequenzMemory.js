@@ -10,7 +10,8 @@ Leider funktioniert noch nicht alles, tut uns leid
 var Sequenzmemory;
 (function (Sequenzmemory) {
     window.addEventListener("load", handleLoad);
-    let letters;
+    let letters; //Eingabe
+    let arr; // gemischte Eingabe
     let buildCards = 0;
     let showCardsArray = [];
     let checkLast = [];
@@ -26,7 +27,7 @@ var Sequenzmemory;
         letters = document.getElementById("Button1");
         letters.addEventListener("click", enterTerm);
         let showCards = document.querySelector(".start");
-        showCards.addEventListener("click", enterTerm);
+        showCards.addEventListener("click", showCards);
         const targetDiv = document.getElementById("settings");
         const btn = document.getElementById("Button1");
         const title2 = document.getElementById("title2");
@@ -40,13 +41,6 @@ var Sequenzmemory;
                 title2.style.display = "block";
             }
         };
-        // Install listeners on fieldsets
-        let fieldsets = document.querySelectorAll("fieldset");
-        for (let i = 0; i < fieldsets.length; i++) {
-            let fieldset = fieldsets[i];
-            fieldset.addEventListener("change", handleChange);
-            fieldset.addEventListener("input", handleChange);
-        }
     }
     function handleChange(_event) {
         let target = _event.target;
@@ -60,20 +54,21 @@ var Sequenzmemory;
             console.log("Checked: " + target.name + " = " + target.checked);
     }
     function enterTerm(_event) {
-        var a = prompt("Enter some text", "");
+        let a = prompt("Enter some text", "");
         if (a != null) {
             let arr = a.split("");
             shuffle(arr);
             console.log(arr);
         }
+        showCards();
     }
-    function showCards(_input) {
+    function showCards() {
         gamefield = document.createElement("div");
         gamefield.style.backgroundColor = formData.get("background")?.toString();
         let card = document.createElement("span");
         let body = document.querySelector("body");
         body.appendChild(gamefield);
-        card.innerHTML = _input;
+        card.innerHTML = arr;
         card.classList.add("card");
         card.classList.add("hidden");
         showCardsArray.push(card);
