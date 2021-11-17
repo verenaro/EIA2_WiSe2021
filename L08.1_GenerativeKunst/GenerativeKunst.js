@@ -12,6 +12,11 @@ var L08_1_GenerativeKunst;
         showBubbles({ x: 800, y: 600 }, { x: 800, y: 600 });
         showBiggerBubbles({ x: 800, y: 600 }, { x: 800, y: 600 });
         drawLines({ x: 0, y: 600 }, 300, 50);
+        for (let i = 0; i < 100; i++) {
+            let x = Math.random() * 400;
+            let y = Math.random() * 200;
+            drawSquares(x, y);
+        }
     }
     function drawBackground() {
         console.log("Background");
@@ -88,6 +93,14 @@ var L08_1_GenerativeKunst;
         crc2.fillStyle = gradient;
         crc2.fill();
         crc2.restore();
+    }
+    function drawSquares(_x, _y) {
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.fillRect(-_x + 100, 200, _y + 30, 30);
+        crc2.closePath();
+        crc2.fillStyle = "purple";
+        crc2.fill();
     }
 })(L08_1_GenerativeKunst || (L08_1_GenerativeKunst = {}));
 //# sourceMappingURL=GenerativeKunst.js.map
