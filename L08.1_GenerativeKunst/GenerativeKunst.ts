@@ -15,13 +15,26 @@ namespace L08_1_GenerativeKunst {
         drawBackground();
         showBubbles({ x: 800, y: 600 }, { x: 800, y: 600 });
         showBiggerBubbles({ x: 800, y: 600 }, { x: 800, y: 600 });
+        //drawEllipse( 400, 300 );
         drawLines({ x: 0, y: 600 }, 300, 50);
+        drawTest();
+        
+
+
 
         for (let i: number = 0; i < 100; i++) {
             let x: number = Math.random() * 400;
             let y: number = Math.random() * 200;
             drawSquares(x, y);
         }
+
+
+
+
+
+
+
+
 
     }
     function drawBackground(): void {
@@ -123,12 +136,47 @@ namespace L08_1_GenerativeKunst {
     }
 
     function drawSquares(_x: number, _y: number): void {
+
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.fillRect(-_x + 100, 200, _y + 30, 30);
-        crc2.closePath();
+        crc2.rotate(20 * Math.PI / 180);
         crc2.fillStyle = "purple";
+        crc2.fillRect(_x + 100, 200, _y + 30, 30);
+        crc2.closePath();
         crc2.fill();
+        console.log(_x, _y);
     }
 
+    function drawTest(): void {
+
+        crc2.beginPath();
+        crc2.moveTo(2.1, 1);
+        crc2.lineTo(2.1, 10);
+        crc2.moveTo(4.5, 1);
+        crc2.lineTo(4.5, 10);
+        crc2.moveTo(7.5, 1);
+        crc2.lineTo(10.5, 10);
+        crc2.stroke();
+    }
+    /*function drawEllipse(_x: number, _y: number): void {
+
+
+        crc2.beginPath();
+        crc2.ellipse(60, 75, 50, 30, Math.PI * .25, 0, Math.PI * 1.5);
+        crc2.fillStyle = "red";
+        crc2.fill();
+
+        crc2.fillStyle = "blue";
+        crc2.beginPath();
+        crc2.ellipse(150, 75, 50, 30, Math.PI * .25, 0, Math.PI);
+        crc2.fill();
+
+        crc2.fillStyle = "green";
+        crc2.beginPath();
+        crc2.ellipse(240, 75, 50, 30, Math.PI * .25, 0, Math.PI, true);
+        crc2.fill();
+
+        
+        }
+    }*/
 }
