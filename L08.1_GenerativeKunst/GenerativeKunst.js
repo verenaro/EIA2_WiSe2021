@@ -13,7 +13,11 @@ var L08_1_GenerativeKunst;
         showBiggerBubbles({ x: 800, y: 600 }, { x: 800, y: 600 });
         //drawEllipse( 400, 300 );
         drawLines({ x: 0, y: 600 }, 300, 50);
-        drawTest();
+        for (let i = 0; i < 100; i++) {
+            let x = Math.random() * 800;
+            let y = Math.random() * 600;
+            drawTriangles(x, y);
+        }
         for (let i = 0; i < 100; i++) {
             let x = Math.random() * 400;
             let y = Math.random() * 200;
@@ -100,42 +104,44 @@ var L08_1_GenerativeKunst;
         crc2.beginPath();
         crc2.moveTo(_x, _y);
         crc2.rotate(20 * Math.PI / 180);
-        crc2.fillStyle = "purple";
+        crc2.fillStyle = "F19CBB";
         crc2.fillRect(_x + 100, 200, _y + 30, 30);
         crc2.closePath();
         crc2.fill();
         console.log(_x, _y);
     }
-    function drawTest() {
+    function drawTriangles(_x, _y) {
         crc2.beginPath();
-        crc2.moveTo(2.1, 1);
-        crc2.lineTo(2.1, 10);
-        crc2.moveTo(4.5, 1);
-        crc2.lineTo(4.5, 10);
-        crc2.moveTo(7.5, 1);
-        crc2.lineTo(10.5, 10);
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x, _y + 100);
+        crc2.lineTo(_x + 60, _y + 40);
+        crc2.closePath();
+        crc2.fillStyle = "#B284BE";
+        crc2.strokeStyle = "white";
+        crc2.lineWidth = 10;
         crc2.stroke();
+        crc2.fill();
     }
-    /*function drawEllipse(_x: number, _y: number): void {
-
-
-        crc2.beginPath();
-        crc2.ellipse(60, 75, 50, 30, Math.PI * .25, 0, Math.PI * 1.5);
-        crc2.fillStyle = "red";
-        crc2.fill();
-
-        crc2.fillStyle = "blue";
-        crc2.beginPath();
-        crc2.ellipse(150, 75, 50, 30, Math.PI * .25, 0, Math.PI);
-        crc2.fill();
-
-        crc2.fillStyle = "green";
-        crc2.beginPath();
-        crc2.ellipse(240, 75, 50, 30, Math.PI * .25, 0, Math.PI, true);
-        crc2.fill();
-
-        
-        }
-    }*/
 })(L08_1_GenerativeKunst || (L08_1_GenerativeKunst = {}));
+/*function drawEllipse(_x: number, _y: number): void {
+
+
+    crc2.beginPath();
+    crc2.ellipse(60, 75, 50, 30, Math.PI * .25, 0, Math.PI * 1.5);
+    crc2.fillStyle = "red";
+    crc2.fill();
+
+    crc2.fillStyle = "blue";
+    crc2.beginPath();
+    crc2.ellipse(150, 75, 50, 30, Math.PI * .25, 0, Math.PI);
+    crc2.fill();
+
+    crc2.fillStyle = "green";
+    crc2.beginPath();
+    crc2.ellipse(240, 75, 50, 30, Math.PI * .25, 0, Math.PI, true);
+    crc2.fill();
+
+    
+    }
+}*/
 //# sourceMappingURL=GenerativeKunst.js.map
