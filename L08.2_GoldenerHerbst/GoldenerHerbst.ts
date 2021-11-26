@@ -36,6 +36,9 @@ namespace GoldenerHerbst {
         drawNuts({ x: 880, y: 750 }, { x: 130, y: 75 });
         drawLeaves({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawLeaves2({ x: 500, y: 800 }, { x: 1000, y: 400 });
+        drawLeaves3({ x: 500, y: 800 }, { x: 1000, y: 400 });
+        drawFlowers(1000, 800);
+
 
 
 
@@ -156,7 +159,7 @@ namespace GoldenerHerbst {
         crc2.fillRect(600, 550, 20, 80);
 
         crc2.beginPath();
-        crc2.fillStyle = "orange";
+        crc2.fillStyle = "red";
         crc2.arc(600, 550, 25, 0, 2 * Math.PI);
         crc2.arc(620, 530, 25, 0, 2 * Math.PI);
         crc2.arc(600, 530, 25, 0, 2 * Math.PI);
@@ -170,7 +173,7 @@ namespace GoldenerHerbst {
         crc2.fillRect(850, 550, 20, 90);
 
         crc2.beginPath();
-        crc2.fillStyle = "orange";
+        crc2.fillStyle = "green";
         crc2.arc(880, 550, 25, 0, 2 * Math.PI);
         crc2.arc(840, 550, 25, 0, 2 * Math.PI);
         crc2.arc(850, 540, 30, 0, 2 * Math.PI);
@@ -247,7 +250,64 @@ namespace GoldenerHerbst {
         crc2.fill();
 
         //SecondSquirrel
-        
+        //Body
+        crc2.beginPath();
+        crc2.fillStyle = "brown";
+        crc2.arc(450, 600, 20, 0, 2 * Math.PI);
+        crc2.arc(450, 575, 15, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Eyes
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.arc(445, 573, 2.5, 0, 2 * Math.PI);
+        crc2.arc(458, 573, 2.5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Mouth
+        crc2.beginPath();
+        crc2.fillStyle = "grey";
+        crc2.arc(450, 580, 2.5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Ears
+        crc2.beginPath();
+        crc2.fillStyle = "brown";
+        crc2.arc(457, 563, 5, 0, 2 * Math.PI);
+        crc2.arc(443, 563, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Paws
+        crc2.beginPath();
+        crc2.fillStyle = "grey";
+        crc2.arc(445, 595, 3, 0, 2 * Math.PI);
+        crc2.arc(455, 595, 3, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Paws2
+        crc2.beginPath();
+        crc2.fillStyle = "brown";
+        crc2.arc(440, 615, 5, 0, 2 * Math.PI);
+        crc2.arc(460, 615, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+
+        //Tail
+        crc2.beginPath();
+        crc2.fillStyle = "brown";
+        crc2.arc(465, 605, 12, 0, 2 * Math.PI);
+        crc2.arc(470, 600, 12, 0, 2 * Math.PI);
+        crc2.arc(475, 595, 12, 0, 2 * Math.PI);
+        crc2.arc(480, 590, 12, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+
     }
     function drawNuts(_position: Vector, _size: Vector): void {
         console.log("Nuts", _position, _size);
@@ -331,16 +391,57 @@ namespace GoldenerHerbst {
 
 
     }
+    function drawLeaves3(_position: Vector, _size: Vector): void {
+        console.log("Leave2", _position, _size);
+        let nParticles: number = 15;
+        let radiusParticles: number = 10;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
+
+        particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
+        gradient.addColorStop(0, "green");
+
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+        crc2.rotate(5);
+
+
+        crc2.fillStyle = gradient;
+
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x: number = (Math.random() - 0.5) * _size.x;
+            let y: number = - (Math.random() * _size.y);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
 
 
 
+    }
+    function drawFlowers(_x: number, _y: number): void {
+        //Flower1
+        crc2.beginPath();
+        crc2.fillStyle = "green";
+        crc2.fillRect(200, 600, 5, 20);
 
 
-
-
-
-
-
-
+        crc2.beginPath();
+        crc2.fillStyle = "white";
+        crc2.arc(192, 600, 7, 0, 2 * Math.PI);
+        crc2.arc(193, 593, 7, 0, 2 * Math.PI);
+        crc2.arc(205, 590, 7, 0, 2 * Math.PI);
+        crc2.arc(210, 600, 7, 0, 2 * Math.PI);
+        crc2.arc(200, 605, 7, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.beginPath();
+        crc2.fillStyle = "purple";
+        crc2.arc(202, 600, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+    }
 }
-
