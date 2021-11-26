@@ -1,7 +1,7 @@
 /*Aufgabe: L.03_SequenmemorySettings
 Name: Verena Rothweiler
 Matrikel: 270156
-Datum: 
+Datum: 27.11.2021
 Quellen: Zusammenarbeit mit Neslisah Koc
 */
 namespace GoldenerHerbst {
@@ -32,7 +32,12 @@ namespace GoldenerHerbst {
         drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
         drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
         drawTrees(600, 200);
-        drawSquirrel(600, 200);
+        drawSquirrel(600, 700);
+        drawNuts({ x: 880, y: 750 }, { x: 130, y: 75 });
+        drawLeaves({ x: 500, y: 800 }, { x: 1000, y: 400 });
+        drawLeaves2({ x: 500, y: 800 }, { x: 1000, y: 400 });
+
+
 
 
 
@@ -151,7 +156,7 @@ namespace GoldenerHerbst {
         crc2.fillRect(600, 550, 20, 80);
 
         crc2.beginPath();
-        crc2.fillStyle = "red";
+        crc2.fillStyle = "orange";
         crc2.arc(600, 550, 25, 0, 2 * Math.PI);
         crc2.arc(620, 530, 25, 0, 2 * Math.PI);
         crc2.arc(600, 530, 25, 0, 2 * Math.PI);
@@ -165,13 +170,11 @@ namespace GoldenerHerbst {
         crc2.fillRect(850, 550, 20, 90);
 
         crc2.beginPath();
-        crc2.fillStyle = "lightgreen";
+        crc2.fillStyle = "orange";
         crc2.arc(880, 550, 25, 0, 2 * Math.PI);
         crc2.arc(840, 550, 25, 0, 2 * Math.PI);
         crc2.arc(850, 540, 30, 0, 2 * Math.PI);
         crc2.arc(875, 540, 30, 0, 2 * Math.PI);
-
-
         crc2.closePath();
         crc2.fill();
 
@@ -181,13 +184,11 @@ namespace GoldenerHerbst {
         crc2.fillRect(700, 700, 30, 100);
 
         crc2.beginPath();
-        crc2.fillStyle = "green";
+        crc2.fillStyle = "orange";
         crc2.arc(700, 700, 50, 0, 2 * Math.PI);
         crc2.arc(690, 650, 50, 0, 2 * Math.PI);
         crc2.arc(750, 650, 50, 0, 2 * Math.PI);
         crc2.arc(760, 700, 50, 0, 2 * Math.PI);
-
-
         crc2.closePath();
         crc2.fill();
 
@@ -222,7 +223,7 @@ namespace GoldenerHerbst {
         crc2.fill();
         //Paws
         crc2.beginPath();
-        crc2.fillStyle = "white";
+        crc2.fillStyle = "grey";
         crc2.arc(540, 740, 3, 0, 2 * Math.PI);
         crc2.arc(560, 740, 3, 0, 2 * Math.PI);
         crc2.closePath();
@@ -244,6 +245,91 @@ namespace GoldenerHerbst {
         crc2.arc(587, 742, 17, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
+
+        //SecondSquirrel
+        
+    }
+    function drawNuts(_position: Vector, _size: Vector): void {
+        console.log("Nuts", _position, _size);
+        let nParticles: number = 10;
+        let radiusParticles: number = 5;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
+
+        particle.arc(0, 0, radiusParticles, 0, 2 * Math.PI);
+        gradient.addColorStop(0, "brown");
+
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradient;
+
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x: number = (Math.random() - 0.5) * _size.x;
+            let y: number = - (Math.random() * _size.y);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
+    }
+    function drawLeaves(_position: Vector, _size: Vector): void {
+        console.log("Leave", _position, _size);
+        let nParticles: number = 15;
+        let radiusParticles: number = 10;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
+
+        particle.arc(0, 0, radiusParticles, 0, 0.9 * Math.PI);
+        gradient.addColorStop(0, "orange");
+
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradient;
+
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x: number = (Math.random() - 0.5) * _size.x;
+            let y: number = - (Math.random() * _size.y);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
+
+
+    }
+    function drawLeaves2(_position: Vector, _size: Vector): void {
+        console.log("Leave2", _position, _size);
+        let nParticles: number = 15;
+        let radiusParticles: number = 10;
+        let particle: Path2D = new Path2D();
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
+
+        particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
+        gradient.addColorStop(0, "red");
+
+
+        crc2.save();
+        crc2.translate(_position.x, _position.y);
+
+        crc2.fillStyle = gradient;
+
+        for (let drawn: number = 0; drawn < nParticles; drawn++) {
+            crc2.save();
+            let x: number = (Math.random() - 0.5) * _size.x;
+            let y: number = - (Math.random() * _size.y);
+            crc2.translate(x, y);
+            crc2.fill(particle);
+            crc2.restore();
+        }
+        crc2.restore();
+
+
     }
 
 
@@ -251,7 +337,10 @@ namespace GoldenerHerbst {
 
 
 
+
+
+
+
+
 }
-
-
 
