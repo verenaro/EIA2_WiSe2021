@@ -108,10 +108,11 @@ var GoldenerHerbst;
         crc2.restore();
     }
     function drawTrees(_position, _size, _color) {
-        //Baum1
+        //Strunk
         crc2.beginPath();
         crc2.fillStyle = "brown";
         crc2.fillRect(_position.x + -300, _position.y + 400, 25, 110);
+        //Tree
         crc2.beginPath();
         crc2.fillStyle = _color;
         crc2.arc(_position.x - 310, _position.y + 360, 50, 0, 2 * Math.PI);
