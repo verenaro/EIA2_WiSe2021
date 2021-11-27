@@ -34,8 +34,9 @@ var GoldenerHerbst;
         drawLeaves({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawLeaves2({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawLeaves3({ x: 500, y: 800 }, { x: 1000, y: 400 });
-        drawFlowers(1000, 800);
-        LeaveTest(1000, 800);
+        drawFlowers({ x: 500, y: 150 }, { x: 300, y: 200 }, "lightblue");
+        drawFlowers({ x: 700, y: 250 }, { x: 300, y: 200 }, "purple");
+        drawFlowers({ x: 200, y: 280 }, { x: 300, y: 200 }, "pink");
     }
     function drawBackground() {
         console.log("Background");
@@ -166,11 +167,11 @@ var GoldenerHerbst;
         //Tail
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.arc(_position.x + 160, _position.y + 30, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 165, _position.y + 20, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 165, _position.y + 10, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 167, _position.y + 0, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 167, _position.y + -10, 15, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 167, _position.y + -10, 17, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 167, _position.y + 0, 17, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 160, _position.y + 30, 17, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 165, _position.y + 10, 16, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 165, _position.y + 20, 16, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
     }
@@ -259,33 +260,24 @@ var GoldenerHerbst;
         }
         crc2.restore();
     }
-    function drawFlowers(_x, _y) {
-        //Flower1
+    function drawFlowers(_position, _size, _color) {
+        //Flower
         crc2.beginPath();
         crc2.fillStyle = "green";
-        crc2.fillRect(200, 600, 5, 20);
-        crc2.beginPath();
-        crc2.fillStyle = "white";
-        crc2.arc(192, 600, 7, 0, 2 * Math.PI);
-        crc2.arc(193, 593, 7, 0, 2 * Math.PI);
-        crc2.arc(205, 590, 7, 0, 2 * Math.PI);
-        crc2.arc(210, 600, 7, 0, 2 * Math.PI);
-        crc2.arc(200, 605, 7, 0, 2 * Math.PI);
+        crc2.fillRect(_position.x + 100, _position.y + 400, 5, 20);
         crc2.closePath();
         crc2.fill();
         crc2.beginPath();
-        crc2.fillStyle = "purple";
-        crc2.arc(202, 600, 5, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-    }
-    function LeaveTest(_x, _y) {
-        crc2.save();
-        crc2.translate(55, 700);
-        crc2.moveTo(0, 0);
-        crc2.beginPath();
-        crc2.fillStyle = "black";
-        crc2.lineTo(15, 15);
+        crc2.fillStyle = _color;
+        crc2.arc(_position.x + 100, _position.y + 382, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 98, _position.y + 387, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 110, _position.y + 383, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 113, _position.y + 390, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 113, _position.y + 395, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 112, _position.y + 397, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 104, _position.y + 400, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 100, _position.y + 400, 8, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 98, _position.y + 394, 8, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
     }
