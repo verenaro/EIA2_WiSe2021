@@ -24,20 +24,25 @@ var GoldenerHerbst;
         drawSun({ x: 850, y: 50 });
         drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
         drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
-        drawTrees(600, 200);
-        drawSquirrel(600, 700);
-        drawNuts({ x: 880, y: 750 }, { x: 130, y: 75 });
+        drawTrees({ x: 400, y: 200 }, { x: 600, y: 200 }, "orange");
+        drawTrees({ x: 800, y: 100 }, { x: 600, y: 200 }, "brown");
+        drawTrees({ x: 1100, y: 150 }, { x: 600, y: 200 }, "darkgreen");
+        drawSquirrel({ x: 300, y: 600 }, { x: 250, y: 250 });
+        drawSquirrel({ x: 750, y: 700 }, { x: 250, y: 250 });
+        drawSquirrel({ x: 450, y: 650 }, { x: 250, y: 250 });
+        drawNuts({ x: 800, y: 730 }, { x: 130, y: 75 });
         drawLeaves({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawLeaves2({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawLeaves3({ x: 500, y: 800 }, { x: 1000, y: 400 });
         drawFlowers(1000, 800);
+        LeaveTest(1000, 800);
     }
     function drawBackground() {
         console.log("Background");
         let gradient = crc2.createLinearGradient(0, 0, 0, crc2.canvas.height);
         gradient.addColorStop(0, "lightblue");
         gradient.addColorStop(golden, "white");
-        gradient.addColorStop(1, "orange");
+        gradient.addColorStop(1, "darkgreen");
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     }
@@ -101,157 +106,71 @@ var GoldenerHerbst;
         crc2.fill();
         crc2.restore();
     }
-    function drawTrees(_x, _y) {
+    function drawTrees(_position, _size, _color) {
         //Baum1
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.fillRect(300, 600, 25, 110);
+        crc2.fillRect(_position.x + -300, _position.y + 400, 25, 110);
         crc2.beginPath();
-        crc2.fillStyle = "orange";
-        crc2.arc(290, 590, 50, 0, 2 * Math.PI);
-        crc2.arc(300, 550, 50, 0, 2 * Math.PI);
-        crc2.arc(330, 550, 50, 0, 2 * Math.PI);
-        crc2.arc(340, 590, 50, 0, 2 * Math.PI);
+        crc2.fillStyle = _color;
+        crc2.arc(_position.x - 310, _position.y + 360, 50, 0, 2 * Math.PI);
+        crc2.arc(_position.x - 250, _position.y + 320, 50, 0, 2 * Math.PI);
+        crc2.arc(_position.x - 260, _position.y + 360, 50, 0, 2 * Math.PI);
+        crc2.arc(_position.x - 300, _position.y + 320, 50, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        //Baum2
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.fillRect(600, 550, 20, 80);
-        crc2.beginPath();
-        crc2.fillStyle = "red";
-        crc2.arc(600, 550, 25, 0, 2 * Math.PI);
-        crc2.arc(620, 530, 25, 0, 2 * Math.PI);
-        crc2.arc(600, 530, 25, 0, 2 * Math.PI);
-        crc2.arc(625, 545, 25, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Baum3
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.fillRect(850, 550, 20, 90);
-        crc2.beginPath();
-        crc2.fillStyle = "green";
-        crc2.arc(880, 550, 25, 0, 2 * Math.PI);
-        crc2.arc(840, 550, 25, 0, 2 * Math.PI);
-        crc2.arc(850, 540, 30, 0, 2 * Math.PI);
-        crc2.arc(875, 540, 30, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Baum4
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.fillRect(700, 700, 30, 100);
-        crc2.beginPath();
-        crc2.fillStyle = "orange";
-        crc2.arc(700, 700, 50, 0, 2 * Math.PI);
-        crc2.arc(690, 650, 50, 0, 2 * Math.PI);
-        crc2.arc(750, 650, 50, 0, 2 * Math.PI);
-        crc2.arc(760, 700, 50, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
+        crc2.restore();
     }
-    function drawSquirrel(_x, _y) {
+    function drawSquirrel(_position, _size) {
         //Body
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.arc(550, 745, 30, 0, 2 * Math.PI);
-        crc2.arc(550, 710, 20, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 130, _position.y + 19, 30, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 132, _position.y + -23, 20, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Eyes
         crc2.beginPath();
         crc2.fillStyle = "black";
-        crc2.arc(543, 705, 2.5, 0, 2 * Math.PI);
-        crc2.arc(560, 705, 2.5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 125, _position.y + -27, 2.5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 138, _position.y + -27, 2.5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Mouth
         crc2.beginPath();
         crc2.fillStyle = "grey";
-        crc2.arc(550, 715, 2.5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 131, _position.y + -19, 2.5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Ears
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.arc(540, 694, 5, 0, 2 * Math.PI);
-        crc2.arc(560, 694, 5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 143, _position.y + -38, 5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 120, _position.y + -38, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Paws
         crc2.beginPath();
         crc2.fillStyle = "grey";
-        crc2.arc(540, 740, 3, 0, 2 * Math.PI);
-        crc2.arc(560, 740, 3, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 125, _position.y + 10, 3, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 142, _position.y + 10, 3, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Paws2
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.arc(540, 772, 5, 0, 2 * Math.PI);
-        crc2.arc(560, 772, 5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 142, _position.y + 45, 5, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 120, _position.y + 45, 5, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         //Tail
         crc2.beginPath();
         crc2.fillStyle = "brown";
-        crc2.arc(580, 752, 17, 0, 2 * Math.PI);
-        crc2.arc(587, 712, 17, 0, 2 * Math.PI);
-        crc2.arc(587, 722, 17, 0, 2 * Math.PI);
-        crc2.arc(587, 732, 17, 0, 2 * Math.PI);
-        crc2.arc(587, 742, 17, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //SecondSquirrel
-        //Body
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.arc(450, 600, 20, 0, 2 * Math.PI);
-        crc2.arc(450, 575, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Eyes
-        crc2.beginPath();
-        crc2.fillStyle = "black";
-        crc2.arc(445, 573, 2.5, 0, 2 * Math.PI);
-        crc2.arc(458, 573, 2.5, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Mouth
-        crc2.beginPath();
-        crc2.fillStyle = "grey";
-        crc2.arc(450, 580, 2.5, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Ears
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.arc(457, 563, 5, 0, 2 * Math.PI);
-        crc2.arc(443, 563, 5, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Paws
-        crc2.beginPath();
-        crc2.fillStyle = "grey";
-        crc2.arc(445, 595, 3, 0, 2 * Math.PI);
-        crc2.arc(455, 595, 3, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Paws2
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.arc(440, 615, 5, 0, 2 * Math.PI);
-        crc2.arc(460, 615, 5, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        //Tail
-        crc2.beginPath();
-        crc2.fillStyle = "brown";
-        crc2.arc(465, 605, 12, 0, 2 * Math.PI);
-        crc2.arc(470, 600, 12, 0, 2 * Math.PI);
-        crc2.arc(475, 595, 12, 0, 2 * Math.PI);
-        crc2.arc(480, 590, 12, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 160, _position.y + 30, 15, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 165, _position.y + 20, 15, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 165, _position.y + 10, 15, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 167, _position.y + 0, 15, 0, 2 * Math.PI);
+        crc2.arc(_position.x + 167, _position.y + -10, 15, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
     }
@@ -357,6 +276,16 @@ var GoldenerHerbst;
         crc2.beginPath();
         crc2.fillStyle = "purple";
         crc2.arc(202, 600, 5, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+    }
+    function LeaveTest(_x, _y) {
+        crc2.save();
+        crc2.translate(55, 700);
+        crc2.moveTo(0, 0);
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.lineTo(15, 15);
         crc2.closePath();
         crc2.fill();
     }
