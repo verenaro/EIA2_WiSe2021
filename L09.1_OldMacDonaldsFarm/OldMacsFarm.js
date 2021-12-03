@@ -4,11 +4,11 @@ var L091_OldMacsFarm;
     let crc2;
     let animals = [];
     let leftFood = {
-        grass: 50,
-        corn: 60,
-        oats: 45,
-        hay: 35,
-        meat: 40
+        grass: 200,
+        corn: 300,
+        oats: 400,
+        hay: 550,
+        meat: 350
     };
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
@@ -22,11 +22,11 @@ var L091_OldMacsFarm;
         showAnimals();
         singSong();
         feedAnimals();
-        leftFood.grass = 20;
-        leftFood.corn = 30;
-        leftFood.oats = 25;
-        leftFood.hay = 15;
-        leftFood.meat = 10;
+        leftFood.grass = 190;
+        leftFood.corn = 270;
+        leftFood.oats = 375;
+        leftFood.hay = 538;
+        leftFood.meat = 345;
         document.querySelector("#newday").addEventListener("click", feedAnimals);
     }
     function showAnimals() {
@@ -80,17 +80,17 @@ var L091_OldMacsFarm;
     }
     function showFood() {
         leftFood.grass -= animals[0].storage;
+        leftFood.meat -= animals[1].storage;
         //console.log("You have " + storageLeft.hay + " kg hay left.");
-        leftFood.corn -= animals[1].storage;
-        //console.log("You have " + storageLeft.meat + " kg meat left.");
-        leftFood.oats -= animals[2].storage;
-        //console.log("You have " + storageLeft.mice + " mice left.");
+        leftFood.corn -= animals[2].storage;
         leftFood.hay -= animals[3].storage;
+        //console.log("You have " + storageLeft.meat + " kg meat left.");
+        leftFood.oats -= animals[4].storage;
+        //console.log("You have " + storageLeft.mice + " mice left.");
         //console.log("You have " + storageLeft.corn + " kg corn left.");
-        leftFood.meat -= animals[4].storage;
         //console.log("You have " + storageLeft.grass + " kg grass left.");
         let storageDiv = document.getElementById("storage");
-        storageDiv.innerHTML = "Storage:" + "<br>" + "<br>" + leftFood.grass + " kg grass " + "<br>" + leftFood.corn + " kg corn " + "<br>" + leftFood.oats + " kg oats " + "<br>" + leftFood.hay + " kg hay " + "<br>" + leftFood.meat + " kg grass" + "<br>";
+        storageDiv.innerHTML = "Storage:" + "<br>" + "<br>" + leftFood.grass + " kg grass " + "<br>" + leftFood.corn + " kg corn " + "<br>" + leftFood.oats + " kg oats " + "<br>" + leftFood.hay + " kg hay " + "<br>" + leftFood.meat + " kg meat" + "<br>";
     }
 })(L091_OldMacsFarm || (L091_OldMacsFarm = {}));
 //# sourceMappingURL=OldMacsFarm.js.map
