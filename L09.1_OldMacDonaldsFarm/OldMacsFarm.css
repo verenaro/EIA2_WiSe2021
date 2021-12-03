@@ -1,0 +1,18 @@
+body {
+    background-color: lightgrey;
+}
+
+#newday {
+    color: grey;
+    background-color: darkgreen;
+    margin-left: 400px;
+    margin-bottom: 0px;
+    width: 200px;
+    height: 100px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+}
+
+canvas {
+    background-color: lightgrey;
+}
