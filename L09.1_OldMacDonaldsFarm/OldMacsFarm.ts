@@ -107,15 +107,10 @@ namespace L091_OldMacsFarm {
     function showFood(): void {
         leftFood.grass -= animals[0].storage;
         leftFood.meat -= animals[1].storage;
-        //console.log("You have " + storageLeft.hay + " kg hay left.");
         leftFood.corn -= animals[2].storage;
         leftFood.hay -= animals[3].storage;
-        //console.log("You have " + storageLeft.meat + " kg meat left.");
         leftFood.oats -= animals[4].storage;
-        //console.log("You have " + storageLeft.mice + " mice left.");
-        //console.log("You have " + storageLeft.corn + " kg corn left.");
-       
-        //console.log("You have " + storageLeft.grass + " kg grass left.");
+        
         let storageDiv: HTMLElement = document.getElementById("storage");
         storageDiv.innerHTML = "Storage:" + "<br>" + "<br>" + leftFood.grass + " kg grass " + "<br>" + leftFood.corn + " kg corn " + "<br>" + leftFood.oats + " kg oats " + "<br>" + leftFood.hay + " kg hay " + "<br>" + leftFood.meat + " kg meat" + "<br>";
     }
