@@ -1,5 +1,5 @@
 "use strict";
-/*Aufgabe: L.03_SequenmemorySettings
+/*Aufgabe: L.09.1_OldMcDonalsFarm
 Name: Verena Rothweiler
 Matrikel: 270156
 Datum: 04.12.2021
