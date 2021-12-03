@@ -1,3 +1,9 @@
+/*Aufgabe: L.03_SequenmemorySettings
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 04.12.2021
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
 namespace L091_OldMacsFarm {
 
     export class Animal {

@@ -1,3 +1,9 @@
+/*Aufgabe: L.03_SequenmemorySettings
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 04.12.2021
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
 namespace L091_OldMacsFarm {
 
     let crc2: CanvasRenderingContext2D;
@@ -77,11 +83,11 @@ namespace L091_OldMacsFarm {
         let goatDiv: HTMLElement = document.getElementById("goat");
         let sheepDiv: HTMLElement = document.getElementById("sheep");
 
-        cowDiv.innerHTML += "<br>" + "I ate " + animals[0].storage + " kg of " + animals[0].food + "<br>";
-        dogDiv.innerHTML += "<br>" + "I ate " + animals[1].storage + " kg of " + animals[1].food + "<br>";
-        chickenDiv.innerHTML += "<br>" + "I ate " + animals[2].storage + " " + animals[2].food + "<br>";
-        goatDiv.innerHTML += "<br>" + "I ate " + animals[3].storage + " kg of " + animals[3].food + "<br>";
-        sheepDiv.innerHTML += "<br>" + "I ate " + animals[4].storage + " kg of " + animals[4].food + "<br>";
+        cowDiv.innerHTML += "<br>" + "The cow ate " + animals[0].storage + " kg of " + animals[0].food + "<br>";
+        dogDiv.innerHTML += "<br>" + "The dog ate " + animals[1].storage + " kg of " + animals[1].food + "<br>";
+        chickenDiv.innerHTML += "<br>" + "The chicken ate " + animals[2].storage + " " + animals[2].food + "<br>";
+        goatDiv.innerHTML += "<br>" + "The goat ate " + animals[3].storage + " kg of " + animals[3].food + "<br>";
+        sheepDiv.innerHTML += "<br>" + "The sheep ate " + animals[4].storage + " kg of " + animals[4].food + "<br>";
 
         showFood();
     }
