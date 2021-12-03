@@ -3,16 +3,82 @@ body {
 }
 
 #newday {
-    color: grey;
-    background-color: darkgreen;
-    margin-left: 400px;
-    margin-bottom: 0px;
+    float: center;
+    color: black;
+    background-color: white;
     width: 200px;
     height: 100px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: larger;
+    border: 2px solid black;
 }
 
 canvas {
     background-color: lightgrey;
+}
+
+#storage {
+    float: center;
+    margin-left: 27%;
+    padding: 30px;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+}
+
+#cow {
+    float: left;
+    width: 150px;
+    height: 600px;
+    padding: 20px;
+    color: black;
+    background-color: darkgreen;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+}
+
+#dog {
+    float: left;
+    width: 150px;
+    height: 600px;
+    padding: 20px;
+    background-color: darkgreen;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+}
+
+#chicken {
+    float: left;
+    width: 150px;
+    height: 600px;
+    padding: 20px;
+    background-color: darkgreen;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+}
+
+#goat {
+    float: left;
+    width: 150px;
+    height: 600px;
+    padding: 20px;
+    background-color: darkgreen;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
+}
+
+#sheep {
+    float: left;
+    width: 150px;
+    height: 600px;
+    padding: 20px;
+    background-color: darkgreen;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 3px solid black;
 }
