@@ -21,11 +21,6 @@ namespace L091_OldMacsFarm {
             this.food = _food;
             this.storage = _storage;
         }
-        feed(_species: string, _name: string, _food: string, _storage: number): void {
-            //console.log(this.species + "ate" + this.storage + this.food);
-        }
-        sing(_noise: string): void {
-            //console.log(this.noise);
-        }
+
     }
 }

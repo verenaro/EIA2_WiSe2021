@@ -21,12 +21,6 @@ var L091_OldMacsFarm;
             this.food = _food;
             this.storage = _storage;
         }
-        feed(_species, _name, _food, _storage) {
-            //console.log(this.species + "ate" + this.storage + this.food);
-        }
-        sing(_noise) {
-            //console.log(this.noise);
-        }
     }
     L091_OldMacsFarm.Animal = Animal;
 })(L091_OldMacsFarm || (L091_OldMacsFarm = {}));
