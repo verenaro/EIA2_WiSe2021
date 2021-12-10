@@ -2,10 +2,10 @@ namespace L09_2_GoldenerHerbst_Classes {
 
     window.addEventListener("load", handleLoad);
     export let crc2: CanvasRenderingContext2D;
-    let canvas: HTMLCanvasElement | null;
+    export let canvas: HTMLCanvasElement | null;
     let imgData: ImageData;
     let oneCloud: Cloud[] = [];
-    let oneLeaf: Leaf[] = [];
+    let orangeLeaf: Leaf[] = [];
     let redLeaf: Leaf[] = [];
     let greenLeaf: Leaf[] = [];
 
@@ -22,7 +22,7 @@ namespace L09_2_GoldenerHerbst_Classes {
         for (let i: number = 0; i < 6; i++) {
             let allClouds: Cloud = new Cloud();
             allClouds.x = Math.random() * crc2.canvas.width;
-            allClouds.y = Math.random() * crc2.canvas.height - 500;
+            allClouds.y = Math.random() * crc2.canvas.height - 410;
             allClouds.cloudSpeed = (Math.random() + 1) * 0.5;
             oneCloud.push(allClouds);
 
@@ -37,7 +37,7 @@ namespace L09_2_GoldenerHerbst_Classes {
             allLeaves.x = Math.random() * crc2.canvas.width;
             allLeaves.y = Math.random() * crc2.canvas.height + 400;
             allLeaves.leafSpeed = (Math.random() + 1) * 0.5;
-            oneLeaf.push(allLeaves);
+            orangeLeaf.push(allLeaves);
 
         }
 
@@ -83,10 +83,10 @@ namespace L09_2_GoldenerHerbst_Classes {
         window.setTimeout(animate, 5);
 
         //animate Leaves
-        for (let i: number = 0; i < oneLeaf.length; i++) {
-            oneLeaf[i].moveLeaf();
-            if (oneLeaf[i].x > + 1000) {
-                oneLeaf[i].x = canvas.width - 1200;
+        for (let i: number = 0; i < orangeLeaf.length; i++) {
+            orangeLeaf[i].moveLeaf();
+            if (orangeLeaf[i].x > + 1000) {
+                orangeLeaf[i].x = canvas.width - 1200;
             }
             redLeaf[i].moveLeaf2();
             if (redLeaf[i].x > + 1000) {
@@ -108,8 +108,8 @@ namespace L09_2_GoldenerHerbst_Classes {
 
     }
     function drawLeaf(): void {
-        for (let i: number = 0; i < oneLeaf.length; i++)
-            oneLeaf[i].drawLeaves();
+        for (let i: number = 0; i < orangeLeaf.length; i++)
+            orangeLeaf[i].drawLeaves();
         for (let i: number = 0; i < redLeaf.length; i++)
             redLeaf[i].drawLeaves2();
         for (let i: number = 0; i < greenLeaf.length; i++)

@@ -7,9 +7,6 @@ var L09_2_GoldenerHerbst_Classes;
         _position;
         _size;
         leafSpeed;
-        leafColor;
-        nParticles;
-        radiusParticles;
         constructor() {
             this.drawLeaves();
             this.drawLeaves2();

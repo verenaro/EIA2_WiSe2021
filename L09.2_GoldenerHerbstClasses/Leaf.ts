@@ -6,11 +6,8 @@ namespace L09_2_GoldenerHerbst_Classes {
         _position: number;
         _size: number;
         leafSpeed: number;
-        leafColor: string;
-        nParticles: number;
-        radiusParticles: number;
-    
-
+        
+       
         constructor() {
             this.drawLeaves();
             this.drawLeaves2();
