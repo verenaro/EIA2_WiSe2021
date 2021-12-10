@@ -12,8 +12,8 @@ var L09_2_GoldenerHerbst_Classes;
         canvas = document.querySelector("canvas");
         L09_2_GoldenerHerbst_Classes.crc2 = canvas.getContext("2d");
         let backGround = new L09_2_GoldenerHerbst_Classes.GoldenerHerbst;
-        imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(backGround);
+        imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         //push Clouds into array
         for (let i = 0; i < 6; i++) {
             let allClouds = new L09_2_GoldenerHerbst_Classes.Cloud();
@@ -42,6 +42,7 @@ var L09_2_GoldenerHerbst_Classes;
             redLeaf.push(allLeaves);
         }
         window.setTimeout(animate, 5);
+        imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < 10; i++) {
             let allLeaves = new L09_2_GoldenerHerbst_Classes.Leaf();
             allLeaves.x = Math.random() * L09_2_GoldenerHerbst_Classes.crc2.canvas.width;
@@ -73,11 +74,12 @@ var L09_2_GoldenerHerbst_Classes;
                 redLeaf[i].x = canvas.width - 1200;
             }
             greenLeaf[i].moveLeaf3();
-            if (greenLeaf[i].x > +1000) {
-                greenLeaf[i].x = canvas.width - 1200;
+            if (greenLeaf[i].x < -10) {
+                greenLeaf[i].x = canvas.width + 0.5;
             }
         }
         drawLeaf();
+        window.setTimeout(animate, 5);
     }
     function drawCloud() {
         for (let i = 0; i < oneCloud.length; i++)

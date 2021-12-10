@@ -14,8 +14,8 @@ namespace L09_2_GoldenerHerbst_Classes {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         let backGround: GoldenerHerbst = new GoldenerHerbst;
-        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         console.log(backGround);
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
         //push Clouds into array
@@ -54,6 +54,7 @@ namespace L09_2_GoldenerHerbst_Classes {
         }
 
         window.setTimeout(animate, 5);
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {
             let allLeaves: Leaf = new Leaf();
@@ -65,6 +66,7 @@ namespace L09_2_GoldenerHerbst_Classes {
         }
 
         window.setTimeout(animate, 5);
+
     }
 
     //animate Clouds
@@ -91,11 +93,12 @@ namespace L09_2_GoldenerHerbst_Classes {
                 redLeaf[i].x = canvas.width - 1200;
             }
             greenLeaf[i].moveLeaf3();
-            if (greenLeaf[i].x > + 1000) {
-                greenLeaf[i].x = canvas.width - 1200;
+            if (greenLeaf[i].x < -10) {
+                greenLeaf[i].x = canvas.width + 0.5;
             }
         }
         drawLeaf();
+        window.setTimeout(animate, 5);
 
     }
 

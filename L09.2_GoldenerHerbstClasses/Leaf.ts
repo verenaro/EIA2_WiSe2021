@@ -35,6 +35,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
             for (let drawn: number = 0; drawn < nParticles; drawn++) {
                 crc2.save();
+                crc2.restore();
                 let x: number = (Math.random() - 0.5) * this._size;
                 let y: number = - (Math.random() * this._size);
                 crc2.translate(x, y);
@@ -62,6 +63,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
             for (let drawn: number = 0; drawn < nParticles; drawn++) {
                 crc2.save();
+                crc2.restore();
                 let x: number = (Math.random() - 0.5) * this._size;
                 let y: number = - (Math.random() * this._size);
                 crc2.translate(x, y);
@@ -91,6 +93,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
             for (let drawn: number = 0; drawn < nParticles; drawn++) {
                 crc2.save();
+                crc2.restore();
                 let x: number = (Math.random() - 0.5) * this._size;
                 let y: number = - (Math.random() * this._size);
                 crc2.translate(x, y);

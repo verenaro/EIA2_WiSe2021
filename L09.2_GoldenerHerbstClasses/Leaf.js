@@ -27,6 +27,7 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.fillStyle = gradient;
             for (let drawn = 0; drawn < nParticles; drawn++) {
                 L09_2_GoldenerHerbst_Classes.crc2.save();
+                L09_2_GoldenerHerbst_Classes.crc2.restore();
                 let x = (Math.random() - 0.5) * this._size;
                 let y = -(Math.random() * this._size);
                 L09_2_GoldenerHerbst_Classes.crc2.translate(x, y);
@@ -47,6 +48,7 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.fillStyle = gradient;
             for (let drawn = 0; drawn < nParticles; drawn++) {
                 L09_2_GoldenerHerbst_Classes.crc2.save();
+                L09_2_GoldenerHerbst_Classes.crc2.restore();
                 let x = (Math.random() - 0.5) * this._size;
                 let y = -(Math.random() * this._size);
                 L09_2_GoldenerHerbst_Classes.crc2.translate(x, y);
@@ -68,6 +70,7 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.fillStyle = gradient;
             for (let drawn = 0; drawn < nParticles; drawn++) {
                 L09_2_GoldenerHerbst_Classes.crc2.save();
+                L09_2_GoldenerHerbst_Classes.crc2.restore();
                 let x = (Math.random() - 0.5) * this._size;
                 let y = -(Math.random() * this._size);
                 L09_2_GoldenerHerbst_Classes.crc2.translate(x, y);
