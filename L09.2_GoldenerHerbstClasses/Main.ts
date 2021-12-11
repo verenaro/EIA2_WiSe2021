@@ -1,3 +1,9 @@
+/*Aufgabe: L.09.2_GoldenerHerbst_Classes
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 11.12.2021
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
 namespace L09_2_GoldenerHerbst_Classes {
 
     window.addEventListener("load", handleLoad);
