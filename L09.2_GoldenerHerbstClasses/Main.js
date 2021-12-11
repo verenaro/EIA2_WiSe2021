@@ -27,7 +27,7 @@ var L09_2_GoldenerHerbst_Classes;
             allClouds.cloudSpeed = (Math.random() + 1) * 0.5;
             oneCloud.push(allClouds);
         }
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, L09_2_GoldenerHerbst_Classes.canvas.width, L09_2_GoldenerHerbst_Classes.canvas.height);
         //push Leaves into array
         for (let i = 0; i < 10; i++) {
@@ -37,7 +37,7 @@ var L09_2_GoldenerHerbst_Classes;
             allLeaves.leafSpeed = (Math.random() + 1) * 0.5;
             orangeLeaf.push(allLeaves);
         }
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, L09_2_GoldenerHerbst_Classes.canvas.width, L09_2_GoldenerHerbst_Classes.canvas.height);
         for (let i = 0; i < 10; i++) {
             let allLeaves = new L09_2_GoldenerHerbst_Classes.Leaf();
@@ -46,7 +46,7 @@ var L09_2_GoldenerHerbst_Classes;
             allLeaves.leafSpeed = (Math.random() + 1) * 0.5;
             redLeaf.push(allLeaves);
         }
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, L09_2_GoldenerHerbst_Classes.canvas.width, L09_2_GoldenerHerbst_Classes.canvas.height);
         for (let i = 0; i < 10; i++) {
             let allLeaves = new L09_2_GoldenerHerbst_Classes.Leaf();
@@ -55,7 +55,7 @@ var L09_2_GoldenerHerbst_Classes;
             allLeaves.leafSpeed = (Math.random() + 1) * 0.5;
             greenLeaf.push(allLeaves);
         }
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
     }
     //animate Clouds
     function animate() {
@@ -67,7 +67,7 @@ var L09_2_GoldenerHerbst_Classes;
             }
         }
         drawCloud();
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         //animate Leaves
         for (let i = 0; i < orangeLeaf.length; i++) {
             orangeLeaf[i].moveLeaf();
@@ -84,7 +84,7 @@ var L09_2_GoldenerHerbst_Classes;
             }
         }
         drawLeaf();
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
     }
     function drawCloud() {
         for (let i = 0; i < oneCloud.length; i++)

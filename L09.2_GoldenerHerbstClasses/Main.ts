@@ -33,7 +33,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
 
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         //push Leaves into array
@@ -46,7 +46,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
 
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {
@@ -58,7 +58,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
 
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {
@@ -70,7 +70,7 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
 
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
 
     }
 
@@ -85,7 +85,7 @@ namespace L09_2_GoldenerHerbst_Classes {
             }
         }
         drawCloud();
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
 
         //animate Leaves
         for (let i: number = 0; i < orangeLeaf.length; i++) {
@@ -103,7 +103,7 @@ namespace L09_2_GoldenerHerbst_Classes {
             }
         }
         drawLeaf();
-        window.setTimeout(animate, 5);
+        window.setTimeout(animate, 50);
 
     }
 
