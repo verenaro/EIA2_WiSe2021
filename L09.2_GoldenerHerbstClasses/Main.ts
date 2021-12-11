@@ -11,9 +11,8 @@ namespace L09_2_GoldenerHerbst_Classes {
 
     function handleLoad(_event: Event): void {
         canvas = document.querySelector("canvas");
-        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-
-        let backGround: GoldenerHerbst = new GoldenerHerbst;
+        crc2 = canvas.getContext("2d");
+        let backGround: Background = new Background;
         console.log(backGround);
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 

@@ -24,7 +24,7 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.restore();
         }
         moveCloud() {
-            this.x += this.cloudSpeed * (+0.2); // - nach links und + nach rechts           
+            this.x += this.cloudSpeed * (+0.2);
         }
     }
     L09_2_GoldenerHerbst_Classes.Cloud = Cloud;

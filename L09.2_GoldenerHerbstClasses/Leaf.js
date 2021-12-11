@@ -4,7 +4,6 @@ var L09_2_GoldenerHerbst_Classes;
     class Leaf {
         x;
         y;
-        _position;
         _size;
         leafSpeed;
         constructor() {
@@ -77,13 +76,13 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.restore();
         }
         moveLeaf() {
-            this.x += this.leafSpeed * (+0.3); // - nach links und + nach rechts           
+            this.x += this.leafSpeed * (+0.3);
         }
         moveLeaf2() {
-            this.x += this.leafSpeed * (+0.2); // - nach links und + nach rechts           
+            this.x += this.leafSpeed * (+0.2);
         }
         moveLeaf3() {
-            this.x += this.leafSpeed * (-0.5); // - nach links und + nach rechts         
+            this.x += this.leafSpeed * (-0.5);
         }
     }
     L09_2_GoldenerHerbst_Classes.Leaf = Leaf;

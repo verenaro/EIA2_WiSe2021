@@ -28,7 +28,7 @@ namespace L09_2_GoldenerHerbst_Classes {
             crc2.restore();
         }
         moveCloud(): void {
-            this.x += this.cloudSpeed * (+0.2); // - nach links und + nach rechts           
+            this.x += this.cloudSpeed * (+0.2);          
         }
     }
     

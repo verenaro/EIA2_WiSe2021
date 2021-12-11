@@ -1,7 +1,7 @@
 "use strict";
 var L09_2_GoldenerHerbst_Classes;
 (function (L09_2_GoldenerHerbst_Classes) {
-    class GoldenerHerbst {
+    class Background {
         constructor() {
             let golden = 0.62;
             let horizon = L09_2_GoldenerHerbst_Classes.crc2.canvas.height * golden;
@@ -11,13 +11,13 @@ var L09_2_GoldenerHerbst_Classes;
             this.drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
             this.drawTrees({ x: 400, y: 200 }, { x: 600, y: 200 }, "orange");
             this.drawTrees({ x: 800, y: 100 }, { x: 600, y: 200 }, "brown");
+            this.drawSquirrel({ x: 300, y: 600 }, { x: 250, y: 250 });
+            this.drawSquirrel({ x: 750, y: 700 }, { x: 250, y: 250 });
+            this.drawSquirrel({ x: 450, y: 650 }, { x: 250, y: 250 });
             this.drawTrees({ x: 1100, y: 150 }, { x: 600, y: 200 }, "darkgreen");
             this.drawFlowers({ x: 500, y: 150 }, { x: 300, y: 200 });
             this.drawFlowers({ x: 700, y: 250 }, { x: 300, y: 200 });
             this.drawFlowers({ x: 200, y: 280 }, { x: 300, y: 200 });
-            this.drawSquirrel({ x: 300, y: 600 }, { x: 250, y: 250 });
-            this.drawSquirrel({ x: 750, y: 700 }, { x: 250, y: 250 });
-            this.drawSquirrel({ x: 450, y: 650 }, { x: 250, y: 250 });
             this.drawNuts({ x: 800, y: 730 }, { x: 130, y: 75 });
         }
         drawBackground() {
@@ -81,73 +81,6 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.fill();
             L09_2_GoldenerHerbst_Classes.crc2.restore();
         }
-        drawSquirrel(_position, _size) {
-            //Body
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 130, _position.y + 19, 30, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 132, _position.y + -23, 20, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Eyes
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "black";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 125, _position.y + -27, 2.5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 138, _position.y + -27, 2.5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Mouth
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "grey";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 131, _position.y + -19, 2.5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Ears
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 143, _position.y + -38, 5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 120, _position.y + -38, 5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Paws
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "grey";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 125, _position.y + 10, 3, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 142, _position.y + 10, 3, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Paws2
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 142, _position.y + 45, 5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 120, _position.y + 45, 5, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-            //Tail
-            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
-            L09_2_GoldenerHerbst_Classes.crc2.save();
-            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 167, _position.y + -10, 17, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 167, _position.y + 0, 17, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 160, _position.y + 30, 17, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 165, _position.y + 10, 16, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 165, _position.y + 20, 16, 0, 2 * Math.PI);
-            L09_2_GoldenerHerbst_Classes.crc2.closePath();
-            L09_2_GoldenerHerbst_Classes.crc2.fill();
-            L09_2_GoldenerHerbst_Classes.crc2.restore();
-        }
         drawNuts(_position, _size) {
             let nParticles = 10;
             let radiusParticles = 5;
@@ -167,6 +100,59 @@ var L09_2_GoldenerHerbst_Classes;
                 L09_2_GoldenerHerbst_Classes.crc2.restore();
             }
             L09_2_GoldenerHerbst_Classes.crc2.restore();
+        }
+        drawSquirrel(_position, _size) {
+            //Body
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 130, _position.y + 19, 30, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 132, _position.y + -23, 20, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Eyes
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "black";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 125, _position.y + -27, 2.5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 138, _position.y + -27, 2.5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Mouth
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "grey";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 131, _position.y + -19, 2.5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Ears
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 143, _position.y + -38, 5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 120, _position.y + -38, 5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Paws
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "grey";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 125, _position.y + 10, 3, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 142, _position.y + 10, 3, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Paws2
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 142, _position.y + 45, 5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 120, _position.y + 45, 5, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
+            //Tail
+            L09_2_GoldenerHerbst_Classes.crc2.beginPath();
+            L09_2_GoldenerHerbst_Classes.crc2.fillStyle = "brown";
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 167, _position.y + -10, 17, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 167, _position.y + 0, 17, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 160, _position.y + 30, 17, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 165, _position.y + 10, 16, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.arc(_position.x + 165, _position.y + 20, 16, 0, 2 * Math.PI);
+            L09_2_GoldenerHerbst_Classes.crc2.closePath();
+            L09_2_GoldenerHerbst_Classes.crc2.fill();
         }
         drawFlowers(_position, _size) {
             //Flower
@@ -191,6 +177,6 @@ var L09_2_GoldenerHerbst_Classes;
             L09_2_GoldenerHerbst_Classes.crc2.restore();
         }
     }
-    L09_2_GoldenerHerbst_Classes.GoldenerHerbst = GoldenerHerbst;
+    L09_2_GoldenerHerbst_Classes.Background = Background;
 })(L09_2_GoldenerHerbst_Classes || (L09_2_GoldenerHerbst_Classes = {}));
-//# sourceMappingURL=GoldenerHerbt.js.map
+//# sourceMappingURL=Background.js.map

@@ -3,7 +3,6 @@ namespace L09_2_GoldenerHerbst_Classes {
     export class Leaf {
         x: number;
         y: number;
-        _position: number;
         _size: number;
         leafSpeed: number;
         
@@ -103,13 +102,13 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
         moveLeaf(): void {
-            this.x += this.leafSpeed * (+0.3); // - nach links und + nach rechts           
+            this.x += this.leafSpeed * (+0.3);           
         }
         moveLeaf2(): void {
-            this.x += this.leafSpeed * (+0.2); // - nach links und + nach rechts           
+            this.x += this.leafSpeed * (+0.2);          
         }
         moveLeaf3(): void {
-            this.x += this.leafSpeed * (-0.5); // - nach links und + nach rechts         
+            this.x += this.leafSpeed * (-0.5);         
         }
     }
 }

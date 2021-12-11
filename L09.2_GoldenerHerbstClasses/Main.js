@@ -10,7 +10,7 @@ var L09_2_GoldenerHerbst_Classes;
     function handleLoad(_event) {
         L09_2_GoldenerHerbst_Classes.canvas = document.querySelector("canvas");
         L09_2_GoldenerHerbst_Classes.crc2 = L09_2_GoldenerHerbst_Classes.canvas.getContext("2d");
-        let backGround = new L09_2_GoldenerHerbst_Classes.GoldenerHerbst;
+        let backGround = new L09_2_GoldenerHerbst_Classes.Background;
         console.log(backGround);
         imgData = L09_2_GoldenerHerbst_Classes.crc2.getImageData(0, 0, L09_2_GoldenerHerbst_Classes.canvas.width, L09_2_GoldenerHerbst_Classes.canvas.height);
         //push Clouds into array
