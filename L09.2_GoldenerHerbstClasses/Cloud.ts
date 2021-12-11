@@ -4,7 +4,7 @@ namespace L09_2_GoldenerHerbst_Classes {
         x: number;
         y: number;
         cloudSpeed: number;
-       
+
 
         drawClouds(): void {
             crc2.beginPath();
@@ -28,9 +28,9 @@ namespace L09_2_GoldenerHerbst_Classes {
             crc2.restore();
         }
         moveCloud(): void {
-            this.x += this.cloudSpeed * (+0.2);          
+            this.x += this.cloudSpeed * (+0.2);
         }
     }
-    
+
 }
 

@@ -188,7 +188,6 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         drawFlowers(_position: Vector, _size: Vector): void {
             //Flower
-
             crc2.beginPath();
             crc2.save();
             crc2.fillStyle = "green";

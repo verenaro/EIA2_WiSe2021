@@ -5,8 +5,8 @@ namespace L09_2_GoldenerHerbst_Classes {
         y: number;
         _size: number;
         leafSpeed: number;
-        
-       
+
+
         constructor() {
             this.drawLeaves();
             this.drawLeaves2();
@@ -102,13 +102,13 @@ namespace L09_2_GoldenerHerbst_Classes {
 
         }
         moveLeaf(): void {
-            this.x += this.leafSpeed * (+0.3);           
+            this.x += this.leafSpeed * (+0.3);
         }
         moveLeaf2(): void {
-            this.x += this.leafSpeed * (+0.2);          
+            this.x += this.leafSpeed * (+0.2);
         }
         moveLeaf3(): void {
-            this.x += this.leafSpeed * (-0.5);         
+            this.x += this.leafSpeed * (-0.5);
         }
     }
 }
