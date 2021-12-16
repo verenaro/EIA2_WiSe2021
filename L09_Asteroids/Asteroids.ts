@@ -9,7 +9,7 @@ namespace L09_Asteroids {
             console.log("Asteroid constructor");
 
             if (_position)
-                this.position = _position;
+                this.position = _position.copy();
             else
                 this.position = new Vector(0, 0);
 
@@ -41,6 +41,7 @@ namespace L09_Asteroids {
             crc2.translate(this.position.x, this.position.y);
             crc2.scale(this.size, this.size);
             crc2.translate(-50, -50);
+            crc2.lineWidth = 1 / this.size;
             crc2.stroke(asteroidPaths[this.type]);
             crc2.restore();
         }
