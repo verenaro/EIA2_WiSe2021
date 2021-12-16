@@ -1,11 +1,13 @@
 namespace L09_Asteroids {
-    export class Asteroid {
+    export class Asteroid extends Moveable {
         position: Vector;
         velocity: Vector;
         type: number;
         size: number;
 
         constructor(_size: number, _position?: Vector) {
+            super(_position);
+            
             console.log("Asteroid constructor");
 
             if (_position)
@@ -21,19 +23,7 @@ namespace L09_Asteroids {
         }
         move(_timeslice: number): void {
             //console.log("Asteroid move");
-            let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-
-            if (this.position.x < 0)
-                this.position.x += crc2.canvas.width;
-            if (this.position.y < 0)
-                this.position.y += crc2.canvas.height;
-            if (this.position.x > crc2.canvas.width)
-                this.position.x -= crc2.canvas.width;
-            if (this.position.y > crc2.canvas.height)
-                this.position.y -= crc2.canvas.height;
-
+            
         }
         draw(): void {
             //console.log("Asteroid draw");
