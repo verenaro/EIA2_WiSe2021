@@ -19,7 +19,7 @@ var L09_Asteroids;
             super.move(_timeslice);
             this.lifetime -= _timeslice;
             if (this.lifetime < 0)
-                this.velocity = new L09_Asteroids.Vector(0, 0);
+                this.expandable = true;
         }
     }
     L09_Asteroids.Projectile = Projectile;

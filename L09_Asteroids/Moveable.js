@@ -4,6 +4,7 @@ var L09_Asteroids;
     class Moveable {
         position;
         velocity;
+        expandable = false;
         constructor(_position) {
             //console.log("Moveable constructor");
             if (_position)

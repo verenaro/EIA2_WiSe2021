@@ -21,7 +21,7 @@ namespace L09_Asteroids {
             super.move(_timeslice);
             this.lifetime -= _timeslice;
             if (this.lifetime < 0)
-                this.velocity = new Vector(0, 0);
+                this.expandable = true;
         }
     }
 }

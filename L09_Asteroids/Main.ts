@@ -15,7 +15,7 @@ namespace L09_Asteroids {
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         crc2.fillStyle = "black";
         crc2.strokeStyle = "white";
-        crc2.lineWidth = linewidth;  
+        crc2.lineWidth = linewidth;
 
 
         createPath();
@@ -65,8 +65,7 @@ namespace L09_Asteroids {
 
             }
         }
-        let index: number = moveables.indexOf(_asteroid);
-        moveables.splice(index, 1);
+        _asteroid.expandable = true;
     }
     function createAsteroids(_nAsteroids: number): void {
         console.log("create asteroids");
@@ -77,21 +76,31 @@ namespace L09_Asteroids {
     }
 
     function update(): void {
-        console.log("Update");
+        //console.log("Update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
         }
-       
+
+        deleteExpandables();
+
         //ship.draw();
         //hanldeCollisions();
+        console.log("Moveable length", moveables.length);
 
     }
+    function deleteExpandables(): void {
+        for (let i: number = moveables.length - 1; i >= 0; i--) {
+            if (moveables[i].expandable)
+                moveables.splice(i, 1);
+
+        }
 
 
 
 
 
+    }
 }

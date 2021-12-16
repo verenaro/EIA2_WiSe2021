@@ -54,8 +54,7 @@ var L09_Asteroids;
                 moveables.push(fragment);
             }
         }
-        let index = moveables.indexOf(_asteroid);
-        moveables.splice(index, 1);
+        _asteroid.expandable = true;
     }
     function createAsteroids(_nAsteroids) {
         console.log("create asteroids");
@@ -65,14 +64,22 @@ var L09_Asteroids;
         }
     }
     function update() {
-        console.log("Update");
+        //console.log("Update");
         L09_Asteroids.crc2.fillRect(0, 0, L09_Asteroids.crc2.canvas.width, L09_Asteroids.crc2.canvas.height);
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
         }
+        deleteExpandables();
         //ship.draw();
         //hanldeCollisions();
+        console.log("Moveable length", moveables.length);
+    }
+    function deleteExpandables() {
+        for (let i = moveables.length - 1; i >= 0; i--) {
+            if (moveables[i].expandable)
+                moveables.splice(i, 1);
+        }
     }
 })(L09_Asteroids || (L09_Asteroids = {}));
 //# sourceMappingURL=Main.js.map
