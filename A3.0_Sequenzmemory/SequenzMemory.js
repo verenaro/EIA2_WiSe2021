@@ -26,8 +26,8 @@ var Sequenzmemory;
         console.log("handleLoad");
         letters = document.getElementById("Button1");
         letters.addEventListener("click", enterTerm);
-        let showCards = document.querySelector(".start");
-        showCards.addEventListener("click", showCards);
+        // let showCards: HTMLElement = <HTMLElement>document.querySelector(".start");
+        // showCards.addEventListener("click", showCards);
         const targetDiv = document.getElementById("settings");
         const btn = document.getElementById("Button1");
         const title2 = document.getElementById("title2");
@@ -42,17 +42,19 @@ var Sequenzmemory;
             }
         };
     }
-    function handleChange(_event) {
-        let target = _event.target;
-        console.log();
-        if (_event.type == "change")
-            console.warn("Change: " + target.name + " = " + target.value, _event);
-        else
-            console.log("Input: " + target.name + " = " + target.value, _event);
-        // Handling checkbox
-        if (target.type == "checkbox")
-            console.log("Checked: " + target.name + " = " + target.checked);
-    }
+    /*  function handleChange(_event: Event): void {
+          let target: HTMLInputElement = <HTMLInputElement>_event.target;
+          console.log();
+          if (_event.type == "change")
+              console.warn("Change: " + target.name + " = " + target.value, _event);
+          else
+              console.log("Input: " + target.name + " = " + target.value, _event);
+  
+          // Handling checkbox
+          if (target.type == "checkbox")
+              console.log("Checked: " + target.name + " = " + target.checked);
+  
+      }*/
     function enterTerm(_event) {
         let a = prompt("Enter some text", "");
         if (a != null) {

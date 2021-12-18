@@ -98,9 +98,5 @@ namespace L09_Asteroids {
 
         }
 
-
-
-
-
     }
 }

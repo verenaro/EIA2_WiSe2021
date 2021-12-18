@@ -28,8 +28,8 @@ namespace Sequenzmemory {
         console.log("handleLoad");
         letters = <HTMLInputElement>document.getElementById("Button1");
         letters.addEventListener("click", enterTerm);
-        let showCards: HTMLElement = <HTMLElement>document.querySelector(".start");
-        showCards.addEventListener("click", showCards);
+       // let showCards: HTMLElement = <HTMLElement>document.querySelector(".start");
+       // showCards.addEventListener("click", showCards);
 
 
         const targetDiv: HTMLElement = document.getElementById("settings");
@@ -48,7 +48,7 @@ namespace Sequenzmemory {
         
     }
 
-    function handleChange(_event: Event): void {
+  /*  function handleChange(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
         console.log();
         if (_event.type == "change")
@@ -60,7 +60,7 @@ namespace Sequenzmemory {
         if (target.type == "checkbox")
             console.log("Checked: " + target.name + " = " + target.checked);
 
-    }
+    }*/
 
 
     function enterTerm(_event: Event): void {

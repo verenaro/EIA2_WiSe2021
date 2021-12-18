@@ -23,8 +23,9 @@ namespace L091_OldMacsFarm {
         oats: 400,
         hay: 550,
         meat: 350
-
     };
+
+
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
