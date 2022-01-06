@@ -1,22 +1,20 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
     export class Moveable {
-        position?: Vector;
+        position: Vector;
         velocity: Vector;
-        
+        size: number;
 
 
-        constructor(_velocity: Vector,_position?: Vector) {
+
+        constructor(_position?: Vector) {
             //console.log("Moveable constructor");
 
             if (_position)
-                this.position = _position.copy();
+                this.position = _position;
             else
-                this.position = new Vector(0, 0);
+                this.position = new Vector(750, 470);
 
-            if (_velocity)
-                this.velocity = _velocity.copy();
-            else
-                this.velocity = new Vector(0, 0);
+            this.velocity = new Vector(1000, 0);
 
 
         }
@@ -39,6 +37,8 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         draw(): void {
             // console.log("Movable draw");
         }
+
+
 
 
     }

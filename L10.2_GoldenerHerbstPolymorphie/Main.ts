@@ -5,6 +5,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
     let moveables: Moveable[] = [];
+    let imgData: ImageData;
 
 
     function handleLoad(_event: Event): void {
@@ -14,8 +15,8 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         let horizon: number = crc2.canvas.height * golden;
 
 
+
         drawBackground();
-        createClouds(new Vector(400, 50), new Vector(600, 200));
         drawSun(new Vector(150, 60));
         drawMountains(new Vector(0, horizon), 75, 200, "grey", "white");
         drawMountains(new Vector(0, horizon), 50, 150, "grey", "lightgrey");
@@ -26,11 +27,12 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         drawFlower(new Vector(250, 90));
         drawFlower(new Vector(450, 100));
 
+        imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        createClouds();
+        window.setInterval(update, 60);
+
 
     }
-
-
-
 
     function drawBackground(): void {
         let golden: number = 0.62;
@@ -57,8 +59,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         crc2.arc(0, 0, r2, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
-
-
     }
 
     function drawMountains(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string): void {
@@ -113,7 +113,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
     }
 
-
     function drawNuts(_position: Vector, _size: Vector): void {
         let nParticles: number = 10;
         let radiusParticles: number = 5;
@@ -139,6 +138,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         }
         crc2.restore();
     }
+
     function drawFlower(_position: Vector): void {
         //Flower
         crc2.beginPath();
@@ -164,28 +164,24 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
     }
 
-   
-
-
-    function createClouds(_velocity: Vector, _position: Vector): void {
+    function createClouds(): void {
         console.log("Create Clouds");
-        let velocity: Vector = new Vector(0, 0);
-        velocity.random(100, 100);
-        let cloud: Cloud = new Cloud(_velocity, _position);
-        moveables.push(cloud);
-
-        update();
+        for (let i: number = 0; i < 1; i++) {
+            let cloud: Cloud = new Cloud(0.5);
+            moveables.push(cloud);
+        }
 
 
 
     }
     function update(): void {
-        //console.log("Update");
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-
+        console.log("Update");
+        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imgData, 0, 0);
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
+
         }
 
 

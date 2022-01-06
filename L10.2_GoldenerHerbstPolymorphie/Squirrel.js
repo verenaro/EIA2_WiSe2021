@@ -3,7 +3,7 @@ var L10_2_GoldenerHerbstPolymorphie;
 (function (L10_2_GoldenerHerbstPolymorphie) {
     class Squirrel extends L10_2_GoldenerHerbstPolymorphie.Moveable {
         constructor(_position, _velocity) {
-            super(_position, _velocity);
+            super(_position);
         }
         draw() {
             //Body

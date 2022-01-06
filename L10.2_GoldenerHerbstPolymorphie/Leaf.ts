@@ -4,7 +4,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         _size: number;
 
         constructor(_size: number, _position: Vector, _velocity: Vector) {
-            super(_position, _velocity);
+            super(_position);
 
             if (_position)
                 this.position = _position.copy();

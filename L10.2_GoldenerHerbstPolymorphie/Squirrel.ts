@@ -1,7 +1,7 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
     export class Squirrel extends Moveable {
         constructor(_position: Vector, _velocity: Vector) {
-            super(_position, _velocity);
+            super(_position);
 
         }
         draw(): void {

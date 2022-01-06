@@ -4,16 +4,14 @@ var L10_2_GoldenerHerbstPolymorphie;
     class Moveable {
         position;
         velocity;
-        constructor(_velocity, _position) {
+        size;
+        constructor(_position) {
             //console.log("Moveable constructor");
             if (_position)
-                this.position = _position.copy();
+                this.position = _position;
             else
-                this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
-            if (_velocity)
-                this.velocity = _velocity.copy();
-            else
-                this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
+                this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(750, 470);
+            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(1000, 0);
         }
         move(_timeslice) {
             //console.log("Moveable move");

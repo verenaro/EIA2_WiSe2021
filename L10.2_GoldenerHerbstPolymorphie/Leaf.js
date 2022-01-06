@@ -4,7 +4,7 @@ var L10_2_GoldenerHerbstPolymorphie;
     class Leaf extends L10_2_GoldenerHerbstPolymorphie.Moveable {
         _size;
         constructor(_size, _position, _velocity) {
-            super(_position, _velocity);
+            super(_position);
             if (_position)
                 this.position = _position.copy();
             else

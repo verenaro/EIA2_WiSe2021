@@ -1,19 +1,24 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
     export class Cloud extends Moveable {
+        position: Vector;
+        velocity: Vector;
+        size: number;
+        x: number;
+        y: number;
 
-        constructor( _velocity: Vector, _position?: Vector) {
-            super(_position, _velocity);
+        constructor(_size: number, _position?: Vector) {
+            super(_position);
 
 
             if (_position)
-                this.position = _position.copy();
+                this.position = _position;
             else
-                this.position = new Vector(0, 0);
+                this.position = new Vector(20, 100);
 
-            this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 200);
-            
-        
+            this.velocity = new Vector(100, 0);
+            this.size = _size;
+
+
 
         }
 
@@ -38,7 +43,9 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             crc2.fill();
             crc2.restore();
         }
+
         move(_timeslice: number): void {
+            super.move(1 / 50);
             console.log("move Cloud");
         }
     }

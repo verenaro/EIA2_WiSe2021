@@ -3,13 +3,13 @@ var L10_2_GoldenerHerbstPolymorphie;
 (function (L10_2_GoldenerHerbstPolymorphie) {
     window.addEventListener("load", handleLoad);
     let moveables = [];
+    let imgData;
     function handleLoad(_event) {
         L10_2_GoldenerHerbstPolymorphie.canvas = document.querySelector("canvas");
         L10_2_GoldenerHerbstPolymorphie.crc2 = L10_2_GoldenerHerbstPolymorphie.canvas.getContext("2d");
         let golden = 0.62;
         let horizon = L10_2_GoldenerHerbstPolymorphie.crc2.canvas.height * golden;
         drawBackground();
-        createClouds(new L10_2_GoldenerHerbstPolymorphie.Vector(400, 50), new L10_2_GoldenerHerbstPolymorphie.Vector(600, 200));
         drawSun(new L10_2_GoldenerHerbstPolymorphie.Vector(150, 60));
         drawMountains(new L10_2_GoldenerHerbstPolymorphie.Vector(0, horizon), 75, 200, "grey", "white");
         drawMountains(new L10_2_GoldenerHerbstPolymorphie.Vector(0, horizon), 50, 150, "grey", "lightgrey");
@@ -19,6 +19,9 @@ var L10_2_GoldenerHerbstPolymorphie;
         drawNuts(new L10_2_GoldenerHerbstPolymorphie.Vector(500, 550), new L10_2_GoldenerHerbstPolymorphie.Vector(100, 50));
         drawFlower(new L10_2_GoldenerHerbstPolymorphie.Vector(250, 90));
         drawFlower(new L10_2_GoldenerHerbstPolymorphie.Vector(450, 100));
+        imgData = L10_2_GoldenerHerbstPolymorphie.crc2.getImageData(0, 0, L10_2_GoldenerHerbstPolymorphie.canvas.width, L10_2_GoldenerHerbstPolymorphie.canvas.height);
+        createClouds();
+        window.setInterval(update, 60);
     }
     function drawBackground() {
         let golden = 0.62;
@@ -123,17 +126,17 @@ var L10_2_GoldenerHerbstPolymorphie;
         L10_2_GoldenerHerbstPolymorphie.crc2.closePath();
         L10_2_GoldenerHerbstPolymorphie.crc2.restore();
     }
-    function createClouds(_velocity, _position) {
+    function createClouds() {
         console.log("Create Clouds");
-        let velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
-        velocity.random(100, 100);
-        let cloud = new L10_2_GoldenerHerbstPolymorphie.Cloud(_velocity, _position);
-        moveables.push(cloud);
-        update();
+        for (let i = 0; i < 1; i++) {
+            let cloud = new L10_2_GoldenerHerbstPolymorphie.Cloud(0.5);
+            moveables.push(cloud);
+        }
     }
     function update() {
-        //console.log("Update");
-        L10_2_GoldenerHerbstPolymorphie.crc2.fillRect(0, 0, L10_2_GoldenerHerbstPolymorphie.crc2.canvas.width, L10_2_GoldenerHerbstPolymorphie.crc2.canvas.height);
+        console.log("Update");
+        L10_2_GoldenerHerbstPolymorphie.crc2.clearRect(0, 0, L10_2_GoldenerHerbstPolymorphie.crc2.canvas.width, L10_2_GoldenerHerbstPolymorphie.crc2.canvas.height);
+        L10_2_GoldenerHerbstPolymorphie.crc2.putImageData(imgData, 0, 0);
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();

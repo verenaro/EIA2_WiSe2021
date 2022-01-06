@@ -2,14 +2,19 @@
 var L10_2_GoldenerHerbstPolymorphie;
 (function (L10_2_GoldenerHerbstPolymorphie) {
     class Cloud extends L10_2_GoldenerHerbstPolymorphie.Moveable {
-        constructor(_velocity, _position) {
-            super(_position, _velocity);
+        position;
+        velocity;
+        size;
+        x;
+        y;
+        constructor(_size, _position) {
+            super(_position);
             if (_position)
-                this.position = _position.copy();
+                this.position = _position;
             else
-                this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
-            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
-            this.velocity.random(100, 200);
+                this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(20, 100);
+            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(100, 0);
+            this.size = _size;
         }
         draw() {
             L10_2_GoldenerHerbstPolymorphie.crc2.beginPath();
@@ -30,6 +35,7 @@ var L10_2_GoldenerHerbstPolymorphie;
             L10_2_GoldenerHerbstPolymorphie.crc2.restore();
         }
         move(_timeslice) {
+            super.move(1 / 50);
             console.log("move Cloud");
         }
     }
