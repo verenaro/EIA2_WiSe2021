@@ -44,7 +44,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             crc2.closePath();
 
             crc2.beginPath();
-            
+
             particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
             gradient.addColorStop(0, "red");
 
@@ -65,7 +65,26 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             crc2.restore();
             crc2.closePath();
             crc2.beginPath();
+            particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
+            gradient.addColorStop(0, "green");
 
+
+            crc2.save();
+            crc2.translate(400 + this.position.x, this.position.y);
+            crc2.rotate(5);
+
+
+            crc2.fillStyle = gradient;
+
+            for (let drawn: number = 0; drawn < nParticles; drawn++) {
+                crc2.save();
+                let x: number = (Math.random() - 0.5) * this.size;
+                let y: number = - (Math.random() * this.size);
+                crc2.translate(x, y);
+                crc2.fill(particle);
+                crc2.restore();
+            }
+            crc2.restore();
 
         }
 

@@ -50,6 +50,21 @@ var L10_2_GoldenerHerbstPolymorphie;
             L10_2_GoldenerHerbstPolymorphie.crc2.restore();
             L10_2_GoldenerHerbstPolymorphie.crc2.closePath();
             L10_2_GoldenerHerbstPolymorphie.crc2.beginPath();
+            particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
+            gradient.addColorStop(0, "green");
+            L10_2_GoldenerHerbstPolymorphie.crc2.save();
+            L10_2_GoldenerHerbstPolymorphie.crc2.translate(400 + this.position.x, this.position.y);
+            L10_2_GoldenerHerbstPolymorphie.crc2.rotate(5);
+            L10_2_GoldenerHerbstPolymorphie.crc2.fillStyle = gradient;
+            for (let drawn = 0; drawn < nParticles; drawn++) {
+                L10_2_GoldenerHerbstPolymorphie.crc2.save();
+                let x = (Math.random() - 0.5) * this.size;
+                let y = -(Math.random() * this.size);
+                L10_2_GoldenerHerbstPolymorphie.crc2.translate(x, y);
+                L10_2_GoldenerHerbstPolymorphie.crc2.fill(particle);
+                L10_2_GoldenerHerbstPolymorphie.crc2.restore();
+            }
+            L10_2_GoldenerHerbstPolymorphie.crc2.restore();
         }
     }
     L10_2_GoldenerHerbstPolymorphie.Leaf = Leaf;
