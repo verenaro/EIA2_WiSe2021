@@ -21,6 +21,7 @@ var L10_2_GoldenerHerbstPolymorphie;
         drawFlower(new L10_2_GoldenerHerbstPolymorphie.Vector(450, 100));
         imgData = L10_2_GoldenerHerbstPolymorphie.crc2.getImageData(0, 0, L10_2_GoldenerHerbstPolymorphie.canvas.width, L10_2_GoldenerHerbstPolymorphie.canvas.height);
         createClouds();
+        createSquirrel();
         window.setInterval(update, 60);
     }
     function drawBackground() {
@@ -131,6 +132,13 @@ var L10_2_GoldenerHerbstPolymorphie;
         for (let i = 0; i < 1; i++) {
             let cloud = new L10_2_GoldenerHerbstPolymorphie.Cloud(0.5);
             moveables.push(cloud);
+        }
+    }
+    function createSquirrel() {
+        console.log("create Squirrel");
+        for (let i = 0; i < 1; i++) {
+            let squirrel = new L10_2_GoldenerHerbstPolymorphie.Squirrel(0.5, new L10_2_GoldenerHerbstPolymorphie.Vector(200, 550));
+            moveables.push(squirrel);
         }
     }
     function update() {

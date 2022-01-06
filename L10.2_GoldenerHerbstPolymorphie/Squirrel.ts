@@ -1,12 +1,23 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
+
     export class Squirrel extends Moveable {
-        constructor(_position: Vector, _velocity: Vector) {
+        constructor(_size: number, _position: Vector) {
             super(_position);
+
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new Vector(0, 0);
+
+            this.velocity = new Vector(100, 0);
+            
 
         }
         draw(): void {
             //Body
             crc2.beginPath();
+            crc2.save();
+            crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = "brown";
             crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -56,6 +67,12 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             crc2.arc(165, 20, 16, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();
+
+            crc2.restore();
+
+        
+            
+
 
 
 

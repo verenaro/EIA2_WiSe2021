@@ -32,6 +32,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.9)");
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 1)");
             crc2.save();
+            crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = gradient;
 
             crc2.arc(10, 30, 25, 0, 2 * Math.PI);

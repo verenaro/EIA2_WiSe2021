@@ -25,6 +25,7 @@ var L10_2_GoldenerHerbstPolymorphie;
             gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.9)");
             gradient.addColorStop(1, "HSLA(0, 100%, 100%, 1)");
             L10_2_GoldenerHerbstPolymorphie.crc2.save();
+            L10_2_GoldenerHerbstPolymorphie.crc2.translate(this.position.x, this.position.y);
             L10_2_GoldenerHerbstPolymorphie.crc2.fillStyle = gradient;
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(10, 30, 25, 0, 2 * Math.PI);
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(50, 25, 40, 0, 2 * Math.PI);

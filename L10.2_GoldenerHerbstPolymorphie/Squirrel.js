@@ -2,12 +2,19 @@
 var L10_2_GoldenerHerbstPolymorphie;
 (function (L10_2_GoldenerHerbstPolymorphie) {
     class Squirrel extends L10_2_GoldenerHerbstPolymorphie.Moveable {
-        constructor(_position, _velocity) {
+        constructor(_size, _position) {
             super(_position);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
+            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(100, 0);
         }
         draw() {
             //Body
             L10_2_GoldenerHerbstPolymorphie.crc2.beginPath();
+            L10_2_GoldenerHerbstPolymorphie.crc2.save();
+            L10_2_GoldenerHerbstPolymorphie.crc2.translate(this.position.x, this.position.y);
             L10_2_GoldenerHerbstPolymorphie.crc2.fillStyle = "brown";
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -57,6 +64,7 @@ var L10_2_GoldenerHerbstPolymorphie;
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(165, 20, 16, 0, 2 * Math.PI);
             L10_2_GoldenerHerbstPolymorphie.crc2.closePath();
             L10_2_GoldenerHerbstPolymorphie.crc2.fill();
+            L10_2_GoldenerHerbstPolymorphie.crc2.restore();
         }
         move(_timeslice) {
             console.log("move Squirrel");
