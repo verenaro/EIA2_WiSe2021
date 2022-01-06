@@ -22,6 +22,7 @@ var L10_2_GoldenerHerbstPolymorphie;
         imgData = L10_2_GoldenerHerbstPolymorphie.crc2.getImageData(0, 0, L10_2_GoldenerHerbstPolymorphie.canvas.width, L10_2_GoldenerHerbstPolymorphie.canvas.height);
         createClouds();
         createSquirrel();
+        createLeaf();
         window.setInterval(update, 60);
     }
     function drawBackground() {
@@ -128,17 +129,24 @@ var L10_2_GoldenerHerbstPolymorphie;
         L10_2_GoldenerHerbstPolymorphie.crc2.restore();
     }
     function createClouds() {
-        console.log("Create Clouds");
+        //console.log("Create Clouds");
         for (let i = 0; i < 1; i++) {
             let cloud = new L10_2_GoldenerHerbstPolymorphie.Cloud(0.5);
             moveables.push(cloud);
         }
     }
     function createSquirrel() {
-        console.log("create Squirrel");
+        //console.log("create Squirrel");
         for (let i = 0; i < 1; i++) {
-            let squirrel = new L10_2_GoldenerHerbstPolymorphie.Squirrel(0.5, new L10_2_GoldenerHerbstPolymorphie.Vector(200, 550));
+            let squirrel = new L10_2_GoldenerHerbstPolymorphie.Squirrel(0.5, new L10_2_GoldenerHerbstPolymorphie.Vector(0.5, 500));
             moveables.push(squirrel);
+        }
+    }
+    function createLeaf() {
+        //console.log("create Leave");
+        for (let i = 0; i < 10; i++) {
+            let leaf = new L10_2_GoldenerHerbstPolymorphie.Leaf(0.5, new L10_2_GoldenerHerbstPolymorphie.Vector(200, 500));
+            moveables.push(leaf);
         }
     }
     function update() {

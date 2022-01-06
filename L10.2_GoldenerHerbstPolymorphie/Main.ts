@@ -30,6 +30,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         createClouds();
         createSquirrel();
+        createLeaf();
         window.setInterval(update, 60);
 
 
@@ -166,7 +167,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
     }
 
     function createClouds(): void {
-        console.log("Create Clouds");
+        //console.log("Create Clouds");
         for (let i: number = 0; i < 1; i++) {
             let cloud: Cloud = new Cloud(0.5);
             moveables.push(cloud);
@@ -175,13 +176,24 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
     }
     function createSquirrel(): void {
-        console.log("create Squirrel");
+        //console.log("create Squirrel");
         for (let i: number = 0; i < 1; i++) {
-            let squirrel: Squirrel = new Squirrel(0.5, new Vector(200, 550));
+            let squirrel: Squirrel = new Squirrel(0.5, new Vector(0.5, 500));
             moveables.push(squirrel);
         }
-       
+
     }
+
+    function createLeaf(): void {
+        //console.log("create Leave");
+        for (let i: number = 0; i < 10; i++) {
+            let leaf: Leaf = new Leaf(0.5, new Vector(200, 500));
+            moveables.push(leaf);
+        }
+    }
+
+
+
     function update(): void {
         console.log("Update");
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -193,15 +205,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         }
 
 
-
-
-
-
     }
-
-
-
-
 
 }
 

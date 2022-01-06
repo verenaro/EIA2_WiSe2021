@@ -66,9 +66,6 @@ var L10_2_GoldenerHerbstPolymorphie;
             L10_2_GoldenerHerbstPolymorphie.crc2.fill();
             L10_2_GoldenerHerbstPolymorphie.crc2.restore();
         }
-        move(_timeslice) {
-            console.log("move Squirrel");
-        }
     }
     L10_2_GoldenerHerbstPolymorphie.Squirrel = Squirrel;
 })(L10_2_GoldenerHerbstPolymorphie || (L10_2_GoldenerHerbstPolymorphie = {}));

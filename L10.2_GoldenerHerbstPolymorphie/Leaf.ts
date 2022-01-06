@@ -3,7 +3,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
         _size: number;
 
-        constructor(_size: number, _position: Vector, _velocity: Vector) {
+        constructor(_size: number, _position?: Vector) {
             super(_position);
 
             if (_position)
@@ -22,10 +22,12 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
             particle.arc(0, 0, radiusParticles, 0, 0.9 * Math.PI);
             gradient.addColorStop(0, "orange");
-
-
             crc2.save();
-            crc2.translate(0, 0);
+            crc2.translate(this.position.x, this.position.y);
+
+
+
+
 
             crc2.fillStyle = gradient;
 
@@ -39,12 +41,35 @@ namespace L10_2_GoldenerHerbstPolymorphie {
                 crc2.restore();
             }
             crc2.restore();
+            crc2.closePath();
+
+            crc2.beginPath();
+            
+            particle.arc(0, 0, radiusParticles, 1, 0.8 * Math.PI);
+            gradient.addColorStop(0, "red");
 
 
-        }
-        move(_timeslice: number): void {
-            console.log("move Leaf");
+            crc2.save();
+            crc2.translate(10 + this.position.y, 150 + this.position.x);
+
+            crc2.fillStyle = gradient;
+
+            for (let drawn: number = 0; drawn < nParticles; drawn++) {
+                crc2.save();
+                let x: number = (Math.random() - 0.5) * this.size;
+                let y: number = - (Math.random() * this.size);
+                crc2.translate(x, y);
+                crc2.fill(particle);
+                crc2.restore();
+            }
+            crc2.restore();
+            crc2.closePath();
+            crc2.beginPath();
+
+
         }
 
     }
+
 }
+

@@ -1,7 +1,7 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
 
     export class Squirrel extends Moveable {
-        constructor(_size: number, _position: Vector) {
+        constructor(_size: number, _position?: Vector) {
             super(_position);
 
             if (_position)
@@ -77,10 +77,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
 
         }
-        move(_timeslice: number): void {
-            console.log("move Squirrel");
-        }
-
+       
     }
 
 }
