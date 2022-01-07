@@ -14,8 +14,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         let golden: number = 0.62;
         let horizon: number = crc2.canvas.height * golden;
 
-
-
         drawBackground();
         drawSun(new Vector(150, 60));
         drawMountains(new Vector(0, horizon), 75, 200, "grey", "white");
@@ -191,8 +189,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             moveables.push(leaf);
         }
     }
-
-
 
     function update(): void {
         console.log("Update");

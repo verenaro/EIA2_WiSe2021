@@ -8,13 +8,13 @@ var L10_2_GoldenerHerbstPolymorphie;
                 this.position = _position;
             else
                 this.position = new L10_2_GoldenerHerbstPolymorphie.Vector(0, 0);
-            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(100, 0);
+            this.velocity = new L10_2_GoldenerHerbstPolymorphie.Vector(-200, 0);
         }
         draw() {
             //Body
             L10_2_GoldenerHerbstPolymorphie.crc2.beginPath();
             L10_2_GoldenerHerbstPolymorphie.crc2.save();
-            L10_2_GoldenerHerbstPolymorphie.crc2.translate(this.position.x, this.position.y);
+            L10_2_GoldenerHerbstPolymorphie.crc2.translate(-200 + this.position.x, 20 + this.position.y);
             L10_2_GoldenerHerbstPolymorphie.crc2.fillStyle = "brown";
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -70,7 +70,7 @@ var L10_2_GoldenerHerbstPolymorphie;
             //Body
             L10_2_GoldenerHerbstPolymorphie.crc2.beginPath();
             L10_2_GoldenerHerbstPolymorphie.crc2.save();
-            L10_2_GoldenerHerbstPolymorphie.crc2.translate(200 + this.position.x, 20 + this.position.y);
+            L10_2_GoldenerHerbstPolymorphie.crc2.translate(this.position.x, this.position.y);
             L10_2_GoldenerHerbstPolymorphie.crc2.fillStyle = "brown";
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L10_2_GoldenerHerbstPolymorphie.crc2.arc(132, -23, 20, 0, 2 * Math.PI);

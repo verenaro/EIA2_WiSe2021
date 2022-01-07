@@ -9,7 +9,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             else
                 this.position = new Vector(0, 0);
 
-            this.velocity = new Vector(100, 0);
+            this.velocity = new Vector(-200, 0);
             
 
         }
@@ -17,7 +17,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             //Body
             crc2.beginPath();
             crc2.save();
-            crc2.translate(this.position.x, this.position.y);
+            crc2.translate(-200 + this.position.x, 20 + this.position.y);
             crc2.fillStyle = "brown";
             crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -75,7 +75,7 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             //Body
             crc2.beginPath();
             crc2.save();
-            crc2.translate(200 + this.position.x, 20 + this.position.y);
+            crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = "brown";
             crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             crc2.arc(132, -23, 20, 0, 2 * Math.PI);
