@@ -1,3 +1,9 @@
+/*Aufgabe: L.10.2_GoldenerHerbstPolymorphie
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 07.01.2022
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
 namespace L10_2_GoldenerHerbstPolymorphie {
 
     window.addEventListener("load", handleLoad);
