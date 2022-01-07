@@ -2,11 +2,6 @@
 var L10_2_GoldenerHerbstPolymorphie;
 (function (L10_2_GoldenerHerbstPolymorphie) {
     class Cloud extends L10_2_GoldenerHerbstPolymorphie.Moveable {
-        position;
-        velocity;
-        size;
-        x;
-        y;
         constructor(_size, _position) {
             super(_position);
             if (_position)

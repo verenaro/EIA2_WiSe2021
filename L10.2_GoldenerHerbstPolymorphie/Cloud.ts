@@ -1,11 +1,6 @@
 namespace L10_2_GoldenerHerbstPolymorphie {
     export class Cloud extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        size: number;
-        x: number;
-        y: number;
-
+       
         constructor(_size: number, _position?: Vector) {
             super(_position);
 
@@ -17,8 +12,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
 
             this.velocity = new Vector(100, 0);
             this.size = _size;
-
-
 
         }
 
