@@ -4,8 +4,6 @@ namespace L10_2_GoldenerHerbstPolymorphie {
         velocity: Vector;
         size: number;
 
-
-
         constructor(_position?: Vector) {
             //console.log("Moveable constructor");
 
