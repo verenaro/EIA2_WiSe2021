@@ -2,24 +2,14 @@
 var L09_Asteroids;
 (function (L09_Asteroids) {
     class Asteroid extends L09_Asteroids.Moveable {
-        position;
-        velocity;
         type;
         size;
         constructor(_size, _position) {
             super(_position);
             console.log("Asteroid constructor");
-            if (_position)
-                this.position = _position.copy();
-            else
-                this.position = new L09_Asteroids.Vector(0, 0);
-            this.velocity = new L09_Asteroids.Vector(0, 0);
-            this.velocity.random(100, 200);
-            this.type = Math.floor(Math.random() * 4);
+            this.velocity = L09_Asteroids.Vector.getRandom(100, 200);
+            this.type = Math.floor(Math.random() * 4); //math.floor gibt gerade Zahlen aus
             this.size = _size;
-        }
-        move(_timeslice) {
-            //console.log("Asteroid move");
         }
         draw() {
             //console.log("Asteroid draw");

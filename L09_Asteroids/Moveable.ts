@@ -1,19 +1,19 @@
 namespace L09_Asteroids {
     export class Moveable {
-        position: Vector;
-        velocity: Vector;
-        expandable: boolean = false;
+        public position: Vector;
+        public velocity: Vector;
+        public expandable: boolean = false;
 
-
-        constructor(_position?: Vector) {
+        constructor(_position?: Vector) { // ?, bedeutet kann da sein muss aber nicht
             //console.log("Moveable constructor");
 
             if (_position)
-                this.position = _position.copy();
+                this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else
                 this.position = new Vector(0, 0);
 
             this.velocity = new Vector(0, 0);
+
 
         }
         move(_timeslice: number): void {
@@ -30,12 +30,9 @@ namespace L09_Asteroids {
                 this.position.x -= crc2.canvas.width;
             if (this.position.y > crc2.canvas.height)
                 this.position.y -= crc2.canvas.height;
-
         }
         draw(): void {
-            // console.log("Movable draw");
+            //console.log("Moveable move");
         }
-
-        
     }
 }

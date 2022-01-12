@@ -17,19 +17,22 @@ var L09_Asteroids;
         console.log("Asteroids paths: ", L09_Asteroids.asteroidPaths);
         createAsteroids(5);
         //createShip();
-        canvas.addEventListener("mousedown", shootProjectile);
+        createUfo();
+        canvas.addEventListener("ufoShoots", handleUfoShot);
         canvas.addEventListener("mouseup", shootLaser);
         //canvas.addEventListener("keypress", handleKeypress);
         //canvas.addEventListener("mousemove", setHeading);
         window.setInterval(update, 20);
     }
-    function shootProjectile(_event) {
+    function shootProjectile(_origin) {
         console.log("Shoot Projectile");
-        let origin = new L09_Asteroids.Vector(_event.clientX - L09_Asteroids.crc2.canvas.offsetLeft, _event.clientY - L09_Asteroids.crc2.canvas.offsetTop);
-        let velocity = new L09_Asteroids.Vector(0, 0);
-        velocity.random(100, 100);
-        let projectile = new L09_Asteroids.Projectile(origin, velocity);
+        let velocity = L09_Asteroids.Vector.getRandom(100, 100);
+        let projectile = new L09_Asteroids.Projectile(_origin, velocity);
         moveables.push(projectile);
+    }
+    function handleUfoShot(_event) {
+        let ufo = _event.detail.ufo;
+        shootProjectile(ufo.position);
     }
     function shootLaser(_event) {
         console.log("Shoot Laser");
@@ -62,6 +65,11 @@ var L09_Asteroids;
             let asteroid = new L09_Asteroids.Asteroid(1.0);
             moveables.push(asteroid);
         }
+    }
+    function createUfo() {
+        console.log("create Ufo");
+        let ufo = new L09_Asteroids.Ufo();
+        moveables.push(ufo);
     }
     function update() {
         //console.log("Update");

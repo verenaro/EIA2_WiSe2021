@@ -8,7 +8,7 @@ var L09_Asteroids;
         constructor(_position) {
             //console.log("Moveable constructor");
             if (_position)
-                this.position = _position.copy();
+                this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else
                 this.position = new L09_Asteroids.Vector(0, 0);
             this.velocity = new L09_Asteroids.Vector(0, 0);
@@ -28,7 +28,7 @@ var L09_Asteroids;
                 this.position.y -= L09_Asteroids.crc2.canvas.height;
         }
         draw() {
-            // console.log("Movable draw");
+            //console.log("Moveable move");
         }
     }
     L09_Asteroids.Moveable = Moveable;
