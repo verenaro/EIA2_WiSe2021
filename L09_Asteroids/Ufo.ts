@@ -9,6 +9,7 @@ namespace L09_Asteroids {
             this.velocity.scale(Ufo.speed);
             this.hitRadius = 25;
         }
+        
         public draw(): void {
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
@@ -16,6 +17,7 @@ namespace L09_Asteroids {
             crc2.stroke(ufoPath);
             crc2.restore();
         }
+
         public move(_timeslice: number): void {
             super.move(_timeslice);
             if (Math.random() < 0.01)
@@ -23,6 +25,7 @@ namespace L09_Asteroids {
             if (Math.random() < 0.02)
                 this.velocity.y = Ufo.speed * (Math.floor(Math.random() * 3) - 1);
         }
+
         private shoot(): void {
             console.log("Ufo shoots");
             let event: CustomEvent = new CustomEvent("ufoShoots", { detail: { ufo: this } });

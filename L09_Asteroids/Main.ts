@@ -18,7 +18,7 @@ namespace L09_Asteroids {
         crc2.lineWidth = linewidth;
 
 
-        createPath();
+        createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
 
         createAsteroids(5);
@@ -99,6 +99,10 @@ namespace L09_Asteroids {
             moveable.move(1 / 50);
             moveable.draw();
         }
+        for (let moveable of moveables) {
+            moveable.move(1 / 50);
+            moveable.draw();
+        }
 
         deleteExpandables();
 
@@ -117,7 +121,7 @@ namespace L09_Asteroids {
     }
     function hanldeCollisions(): void {
         for (let i: number = 0; i < moveables.length; i++)
-            for (let j: number = i + 1; j < moveables.length; j++){
+            for (let j: number = i + 1; j < moveables.length; j++) {
 
             let a: Moveable = moveables[i];
             let b: Moveable = moveables[j];

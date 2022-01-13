@@ -13,7 +13,7 @@ var L09_Asteroids;
         L09_Asteroids.crc2.fillStyle = "black";
         L09_Asteroids.crc2.strokeStyle = "white";
         L09_Asteroids.crc2.lineWidth = L09_Asteroids.linewidth;
-        L09_Asteroids.createPath();
+        L09_Asteroids.createPaths();
         console.log("Asteroids paths: ", L09_Asteroids.asteroidPaths);
         createAsteroids(5);
         //createShip();
@@ -74,6 +74,10 @@ var L09_Asteroids;
     function update() {
         //console.log("Update");
         L09_Asteroids.crc2.fillRect(0, 0, L09_Asteroids.crc2.canvas.width, L09_Asteroids.crc2.canvas.height);
+        for (let moveable of moveables) {
+            moveable.move(1 / 50);
+            moveable.draw();
+        }
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
