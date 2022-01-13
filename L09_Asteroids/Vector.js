@@ -18,6 +18,9 @@ var L09_Asteroids;
             vector.scale(length);
             return vector;
         }
+        get length() {
+            return Math.hypot(this.x, this.y);
+        }
         set(_x, _y) {
             this.x = _x;
             this.y = _y;

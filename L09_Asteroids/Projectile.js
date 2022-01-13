@@ -3,6 +3,7 @@ var L09_Asteroids;
 (function (L09_Asteroids) {
     class Projectile extends L09_Asteroids.Moveable {
         lifetime = 2;
+        maxLifetime;
         constructor(_position, _velocity) {
             super(_position);
             console.log("Projectile constructor");

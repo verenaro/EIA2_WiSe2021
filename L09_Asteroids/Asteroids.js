@@ -2,14 +2,15 @@
 var L09_Asteroids;
 (function (L09_Asteroids) {
     class Asteroid extends L09_Asteroids.Moveable {
-        type;
         size;
+        type;
         constructor(_size, _position) {
             super(_position);
             console.log("Asteroid constructor");
             this.velocity = L09_Asteroids.Vector.getRandom(100, 200);
             this.type = Math.floor(Math.random() * 4); //math.floor gibt gerade Zahlen aus
             this.size = _size;
+            this.hitRadius = 50;
         }
         draw() {
             //console.log("Asteroid draw");

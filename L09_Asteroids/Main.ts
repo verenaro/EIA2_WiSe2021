@@ -36,14 +36,16 @@ namespace L09_Asteroids {
     function shootProjectile(_origin: Vector): void {
         console.log("Shoot Projectile");
         let velocity: Vector = Vector.getRandom(100, 100);
-        
+
         let projectile: Projectile = new Projectile(_origin, velocity);
         moveables.push(projectile);
     }
+
     function handleUfoShot(_event: Event): void {
         let ufo: Ufo = (<CustomEvent>_event).detail.ufo;
         shootProjectile(ufo.position);
     }
+
     function shootLaser(_event: MouseEvent): void {
         console.log("Shoot Laser");
         let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
@@ -53,6 +55,7 @@ namespace L09_Asteroids {
             breakAsteroid(asteroidHit);
 
     }
+
     function getAsteroidHit(_hotspot: Vector): Asteroid | null {
         for (let moveable of moveables) {
             if (moveable instanceof Asteroid && moveable.isHit(_hotspot))
@@ -60,6 +63,8 @@ namespace L09_Asteroids {
         }
         return null;
     }
+
+
     function breakAsteroid(_asteroid: Asteroid): void {
         if (_asteroid.size > 0.3) {
             for (let i: number = 0; i < 2; i++) {
@@ -71,6 +76,7 @@ namespace L09_Asteroids {
         }
         _asteroid.expandable = true;
     }
+
     function createAsteroids(_nAsteroids: number): void {
         console.log("create asteroids");
         for (let i: number = 0; i < _nAsteroids; i++) {
@@ -97,7 +103,7 @@ namespace L09_Asteroids {
         deleteExpandables();
 
         //ship.draw();
-        //hanldeCollisions();
+        hanldeCollisions();
         console.log("Moveable length", moveables.length);
 
     }
@@ -108,5 +114,18 @@ namespace L09_Asteroids {
 
         }
 
+    }
+    function hanldeCollisions(): void {
+        for (let i: number = 0; i < moveables.length; i++)
+            for (let j: number = i + 1; j < moveables.length; j++){
+
+            let a: Moveable = moveables[i];
+            let b: Moveable = moveables[j];
+            if (a.isHitBy(b)) {
+                a.hit();
+                b.hit();
+            }
+
+            }
     }
 }

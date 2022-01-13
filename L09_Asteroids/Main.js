@@ -80,7 +80,7 @@ var L09_Asteroids;
         }
         deleteExpandables();
         //ship.draw();
-        //hanldeCollisions();
+        hanldeCollisions();
         console.log("Moveable length", moveables.length);
     }
     function deleteExpandables() {
@@ -88,6 +88,17 @@ var L09_Asteroids;
             if (moveables[i].expandable)
                 moveables.splice(i, 1);
         }
+    }
+    function hanldeCollisions() {
+        for (let i = 0; i < moveables.length; i++)
+            for (let j = i + 1; j < moveables.length; j++) {
+                let a = moveables[i];
+                let b = moveables[j];
+                if (a.isHitBy(b)) {
+                    a.hit();
+                    b.hit();
+                }
+            }
     }
 })(L09_Asteroids || (L09_Asteroids = {}));
 //# sourceMappingURL=Main.js.map
