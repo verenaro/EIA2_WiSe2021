@@ -19,14 +19,14 @@ var L09_Asteroids;
         }
         move(_timeslice) {
             super.move(_timeslice);
-            if (Math.random() < 0.01)
+            if (Math.random() < 0.03)
                 this.shoot();
             if (Math.random() < 0.02)
                 this.velocity.y = Ufo.speed * (Math.floor(Math.random() * 3) - 1);
         }
         shoot() {
             console.log("Ufo shoots");
-            let event = new CustomEvent("ufoShoots", { detail: { ufo: this } });
+            let event = new CustomEvent(L09_Asteroids.ASTEROID_EVENT.UFO_SHOOTS, { detail: { ufo: this } });
             L09_Asteroids.crc2.canvas.dispatchEvent(event);
         }
     }

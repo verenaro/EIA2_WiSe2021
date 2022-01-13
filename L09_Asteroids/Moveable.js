@@ -4,12 +4,12 @@ var L09_Asteroids;
     class Moveable {
         position;
         velocity;
-        expandable = false;
+        expendable = false;
         hitRadius = 0;
         constructor(_position) {
-            //console.log("Moveable constructor");
+            // console.log("Moveable constructor");
             if (_position)
-                this.position = _position.copy(); //neuen Vector mit den gleichen Werten
+                this.position = _position.copy();
             else
                 this.position = new L09_Asteroids.Vector(0, 0);
             this.velocity = new L09_Asteroids.Vector(0, 0);
@@ -22,10 +22,10 @@ var L09_Asteroids;
         }
         hit() {
             console.log("Hit", this);
-            this.expandable = true;
+            this.expendable = true;
         }
         move(_timeslice) {
-            //console.log("Moveable move");
+            // console.log("Moveable move");
             let offset = this.velocity.copy();
             offset.scale(_timeslice);
             this.position.add(offset);

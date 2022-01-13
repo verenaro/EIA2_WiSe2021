@@ -204,6 +204,8 @@ namespace L10_2_GoldenerHerbstPolymorphie {
             moveable.move(1 / 50);
             moveable.draw();
 
+            console.log(moveables);
+
         }
 
 

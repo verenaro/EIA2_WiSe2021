@@ -1,11 +1,15 @@
 namespace L09_Asteroids {
+    export enum ASTEROID_EVENT {
+        UFO_SHOOTS = "ufoShoots",
+        ASTEROID_HIT = "asteroidHit"
+    }
+
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
+    export let linewidth: number = 2;
 
     let moveables: Moveable[] = [];
-
-    export let linewidth: number = 2;
 
     function handleLoad(_event: Event): void {
         console.log("Asteroids starting");
@@ -17,27 +21,30 @@ namespace L09_Asteroids {
         crc2.strokeStyle = "white";
         crc2.lineWidth = linewidth;
 
-
         createPaths();
         console.log("Asteroids paths: ", asteroidPaths);
 
         createAsteroids(5);
-        //createShip();
+        // createShip();
+        createUfo();
+        createUfo();
         createUfo();
 
-        canvas.addEventListener("ufoShoots", handleUfoShot);
+        canvas.addEventListener(ASTEROID_EVENT.UFO_SHOOTS, handleUfoShot);
+        canvas.addEventListener(ASTEROID_EVENT.ASTEROID_HIT, breakAsteroid);
         canvas.addEventListener("mouseup", shootLaser);
-        //canvas.addEventListener("keypress", handleKeypress);
-        //canvas.addEventListener("mousemove", setHeading);
+        // canvas.addEventListener("keypress", handleKeypress);
+        // canvas.addEventListener("mousemove", setHeading);
 
         window.setInterval(update, 20);
     }
 
     function shootProjectile(_origin: Vector): void {
-        console.log("Shoot Projectile");
-        let velocity: Vector = Vector.getRandom(100, 100);
-
+        console.log("Shoot projectile");
+        let velocity: Vector = Vector.getRandom(200, 200);
         let projectile: Projectile = new Projectile(_origin, velocity);
+        // move projectile away from ufo to prevent suicide
+        projectile.move(0.15);
         moveables.push(projectile);
     }
 
@@ -47,38 +54,26 @@ namespace L09_Asteroids {
     }
 
     function shootLaser(_event: MouseEvent): void {
-        console.log("Shoot Laser");
-        let hotspot: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
-        let asteroidHit: Asteroid | null = getAsteroidHit(hotspot);
-        console.log(asteroidHit);
-        if (asteroidHit)
-            breakAsteroid(asteroidHit);
-
+        console.log("Shoot laser");
+        let position: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+        let hotspot: Hotspot = new Hotspot(position);
+        moveables.push(hotspot);
     }
 
-    function getAsteroidHit(_hotspot: Vector): Asteroid | null {
-        for (let moveable of moveables) {
-            if (moveable instanceof Asteroid && moveable.isHit(_hotspot))
-                return moveable;
-        }
-        return null;
-    }
-
-
-    function breakAsteroid(_asteroid: Asteroid): void {
-        if (_asteroid.size > 0.3) {
+    function breakAsteroid(_event: Event): void {
+        let asteroid: Asteroid = (<CustomEvent>_event).detail.asteroid;
+        if (asteroid.size > 0.3) {
             for (let i: number = 0; i < 2; i++) {
-                let fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.position);
-                fragment.velocity.add(_asteroid.velocity);
+                let fragment: Asteroid = new Asteroid(asteroid.size / 2, asteroid.position);
+                fragment.velocity.add(asteroid.velocity);
                 moveables.push(fragment);
-
             }
         }
-        _asteroid.expandable = true;
+        asteroid.expendable = true;
     }
 
     function createAsteroids(_nAsteroids: number): void {
-        console.log("create asteroids");
+        console.log("Create asteroids");
         for (let i: number = 0; i < _nAsteroids; i++) {
             let asteroid: Asteroid = new Asteroid(1.0);
             moveables.push(asteroid);
@@ -86,19 +81,15 @@ namespace L09_Asteroids {
     }
 
     function createUfo(): void {
-        console.log("create Ufo");
+        console.log("Create ufo");
         let ufo: Ufo = new Ufo();
         moveables.push(ufo);
     }
 
     function update(): void {
-        //console.log("Update");
+        // console.log("Update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
-        for (let moveable of moveables) {
-            moveable.move(1 / 50);
-            moveable.draw();
-        }
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
@@ -106,30 +97,36 @@ namespace L09_Asteroids {
 
         deleteExpandables();
 
-        //ship.draw();
-        hanldeCollisions();
-        console.log("Moveable length", moveables.length);
+        // ship.draw();
+        handleCollisions();
 
+        console.log("Moveable length: ", moveables.length);
     }
+
     function deleteExpandables(): void {
         for (let i: number = moveables.length - 1; i >= 0; i--) {
-            if (moveables[i].expandable)
+            if (moveables[i].expendable)
                 moveables.splice(i, 1);
-
         }
-
     }
-    function hanldeCollisions(): void {
-        for (let i: number = 0; i < moveables.length; i++)
-            for (let j: number = i + 1; j < moveables.length; j++) {
 
+    function handleCollisions(): void {
+        for (let i: number = 0; i < moveables.length; i++) {
             let a: Moveable = moveables[i];
-            let b: Moveable = moveables[j];
-            if (a.isHitBy(b)) {
-                a.hit();
-                b.hit();
-            }
+            for (let j: number = i + 1; j < moveables.length; j++) {
+                let b: Moveable = moveables[j];
+
+                if (a instanceof Asteroid && b instanceof Asteroid)
+                    continue;
+                if (a.expendable || b.expendable)
+                    continue;
+
+                if (a.isHitBy(b)) {
+                    a.hit();
+                    b.hit();
+                }
 
             }
+        }
     }
 }

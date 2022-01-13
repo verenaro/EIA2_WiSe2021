@@ -162,6 +162,7 @@ var L10_2_GoldenerHerbstPolymorphie;
         for (let moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
+            console.log(moveables);
         }
     }
 })(L10_2_GoldenerHerbstPolymorphie || (L10_2_GoldenerHerbstPolymorphie = {}));
