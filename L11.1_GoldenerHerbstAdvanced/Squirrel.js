@@ -122,7 +122,7 @@ var L11_1_GoldenerHerbst_Advanced;
             L11_1_GoldenerHerbst_Advanced.crc2.fill();
             L11_1_GoldenerHerbst_Advanced.crc2.restore();
         }
-        eat() {
+        food() {
             console.log("Squirrel is eating");
         }
     }

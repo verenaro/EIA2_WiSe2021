@@ -1,5 +1,5 @@
 namespace L11_1_GoldenerHerbst_Advanced {
-    export class Moveable {
+    export abstract class Moveable {
         public position: Vector;
         public velocity: Vector;
         public size: number;
