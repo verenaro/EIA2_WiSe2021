@@ -2,6 +2,7 @@
 var L11_1_GoldenerHerbst_Advanced;
 (function (L11_1_GoldenerHerbst_Advanced) {
     class Nut extends L11_1_GoldenerHerbst_Advanced.Moveable {
+        wasEaten;
         constructor(_position) {
             super(_position);
         }

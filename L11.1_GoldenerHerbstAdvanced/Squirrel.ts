@@ -1,6 +1,9 @@
 namespace L11_1_GoldenerHerbst_Advanced {
 
     export class Squirrel extends Moveable {
+
+        public isHungry: boolean;
+        
         constructor(_size: number, _position?: Vector) {
             super(_position);
 
@@ -9,7 +12,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
             else
                 this.position = new Vector(0, 0);
 
-            this.velocity = new Vector(-200, 0);
+            this.velocity = new Vector(0, 0);
 
 
         }
@@ -17,7 +20,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
             //Body
             crc2.beginPath();
             crc2.save();
-            crc2.translate(-200 + this.position.x, 20 + this.position.y);
+            crc2.translate(-100 + this.position.x, 20 + this.position.y);
             crc2.fillStyle = "brown";
             crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -130,10 +133,6 @@ namespace L11_1_GoldenerHerbst_Advanced {
 
 
         }
-
-      /*  private food(): void {
-            console.log("Squirrel is eating");
-        }*/
 
     }
 

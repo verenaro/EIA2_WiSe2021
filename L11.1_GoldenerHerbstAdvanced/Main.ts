@@ -3,6 +3,7 @@ Name: Verena Rothweiler
 Matrikel: 270156
 Datum: 15.01.2022
 Quellen: Zusammenarbeit mit Neslisah Koc
+Implementation nicht fertig
 */
 
 
@@ -197,7 +198,6 @@ namespace L11_1_GoldenerHerbst_Advanced {
         moveables.push(nut);
         let placeNut: Vector = new Vector(_event.offsetX, _event.offsetY);
         nutPos.push(placeNut);
-        console.log(nutPos[0]); 
         
         }
 

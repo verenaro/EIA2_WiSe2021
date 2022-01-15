@@ -1,6 +1,7 @@
 namespace L11_1_GoldenerHerbst_Advanced {
     export class Nut extends Moveable {
         
+        public wasEaten: boolean;
 
         constructor(_position: Vector) {
             super(_position);  

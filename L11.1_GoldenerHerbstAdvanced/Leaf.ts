@@ -14,6 +14,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
             this.velocity = new Vector(0, 0);
             this.velocity = Vector.getRandom(100, 200);
         }
+        
         public draw(): void {
             let nParticles: number = 15;
             let radiusParticles: number = 10;

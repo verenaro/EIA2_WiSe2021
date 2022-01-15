@@ -2,19 +2,20 @@
 var L11_1_GoldenerHerbst_Advanced;
 (function (L11_1_GoldenerHerbst_Advanced) {
     class Squirrel extends L11_1_GoldenerHerbst_Advanced.Moveable {
+        isHungry;
         constructor(_size, _position) {
             super(_position);
             if (_position)
                 this.position = _position;
             else
                 this.position = new L11_1_GoldenerHerbst_Advanced.Vector(0, 0);
-            this.velocity = new L11_1_GoldenerHerbst_Advanced.Vector(-200, 0);
+            this.velocity = new L11_1_GoldenerHerbst_Advanced.Vector(0, 0);
         }
         draw() {
             //Body
             L11_1_GoldenerHerbst_Advanced.crc2.beginPath();
             L11_1_GoldenerHerbst_Advanced.crc2.save();
-            L11_1_GoldenerHerbst_Advanced.crc2.translate(-200 + this.position.x, 20 + this.position.y);
+            L11_1_GoldenerHerbst_Advanced.crc2.translate(-100 + this.position.x, 20 + this.position.y);
             L11_1_GoldenerHerbst_Advanced.crc2.fillStyle = "brown";
             L11_1_GoldenerHerbst_Advanced.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L11_1_GoldenerHerbst_Advanced.crc2.arc(132, -23, 20, 0, 2 * Math.PI);

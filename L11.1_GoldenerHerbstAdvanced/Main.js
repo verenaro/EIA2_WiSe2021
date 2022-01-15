@@ -4,6 +4,7 @@ Name: Verena Rothweiler
 Matrikel: 270156
 Datum: 15.01.2022
 Quellen: Zusammenarbeit mit Neslisah Koc
+Implementation nicht fertig
 */
 var L11_1_GoldenerHerbst_Advanced;
 (function (L11_1_GoldenerHerbst_Advanced) {
@@ -154,7 +155,6 @@ var L11_1_GoldenerHerbst_Advanced;
         moveables.push(nut);
         let placeNut = new L11_1_GoldenerHerbst_Advanced.Vector(_event.offsetX, _event.offsetY);
         L11_1_GoldenerHerbst_Advanced.nutPos.push(placeNut);
-        console.log(L11_1_GoldenerHerbst_Advanced.nutPos[0]);
     }
 })(L11_1_GoldenerHerbst_Advanced || (L11_1_GoldenerHerbst_Advanced = {}));
 //# sourceMappingURL=Main.js.map
