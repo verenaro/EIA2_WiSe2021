@@ -1,4 +1,10 @@
 "use strict";
+/*Aufgabe: L.11.1_GoldenerHerbstAdvanced
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 15.01.2022
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
 var L11_1_GoldenerHerbst_Advanced;
 (function (L11_1_GoldenerHerbst_Advanced) {
     window.addEventListener("load", handleLoad);
@@ -130,15 +136,6 @@ var L11_1_GoldenerHerbst_Advanced;
             moveables.push(leaf);
         }
     }
-    function createNut(_event) {
-        console.log(_event);
-        // tslint:disable-next-line: typedef
-        let nut = new L11_1_GoldenerHerbst_Advanced.Nut(new L11_1_GoldenerHerbst_Advanced.Vector(_event.clientX, _event.clientY));
-        moveables.push(nut);
-        let hazelnutSpot = new L11_1_GoldenerHerbst_Advanced.Vector(_event.clientX, _event.clientY);
-        L11_1_GoldenerHerbst_Advanced.nutPos.push(hazelnutSpot);
-        console.log(L11_1_GoldenerHerbst_Advanced.nutPos[0]);
-    }
     function update() {
         console.log("Update");
         L11_1_GoldenerHerbst_Advanced.crc2.clearRect(0, 0, L11_1_GoldenerHerbst_Advanced.crc2.canvas.width, L11_1_GoldenerHerbst_Advanced.crc2.canvas.height);
@@ -148,6 +145,16 @@ var L11_1_GoldenerHerbst_Advanced;
             moveable.draw();
             console.log(moveables);
         }
+    }
+    //inspiriert von Eyüp Öcal
+    function createNut(_event) {
+        console.log(_event);
+        // tslint:disable-next-line: typedef
+        let nut = new L11_1_GoldenerHerbst_Advanced.Nut(new L11_1_GoldenerHerbst_Advanced.Vector(_event.offsetX, _event.offsetY));
+        moveables.push(nut);
+        let placeNut = new L11_1_GoldenerHerbst_Advanced.Vector(_event.offsetX, _event.offsetY);
+        L11_1_GoldenerHerbst_Advanced.nutPos.push(placeNut);
+        console.log(L11_1_GoldenerHerbst_Advanced.nutPos[0]);
     }
 })(L11_1_GoldenerHerbst_Advanced || (L11_1_GoldenerHerbst_Advanced = {}));
 //# sourceMappingURL=Main.js.map

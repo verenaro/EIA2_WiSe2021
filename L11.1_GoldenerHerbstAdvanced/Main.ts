@@ -1,3 +1,11 @@
+/*Aufgabe: L.11.1_GoldenerHerbstAdvanced
+Name: Verena Rothweiler
+Matrikel: 270156
+Datum: 15.01.2022
+Quellen: Zusammenarbeit mit Neslisah Koc
+*/
+
+
 namespace L11_1_GoldenerHerbst_Advanced {
 
     window.addEventListener("load", handleLoad);
@@ -29,7 +37,9 @@ namespace L11_1_GoldenerHerbst_Advanced {
         createClouds();
         createSquirrel();
         createLeaf();
+
         canvas.addEventListener("click", createNut);
+
         window.setInterval(update, 60);
 
 
@@ -164,17 +174,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
             moveables.push(leaf);
         }
     }
-    function createNut(_event: MouseEvent): void {
-        console.log(_event);
-        // tslint:disable-next-line: typedef
-        let nut = new Nut(new Vector (_event.clientX, _event.clientY));
-        moveables.push(nut);
-        let hazelnutSpot: Vector = new Vector(_event.clientX, _event.clientY);
-        nutPos.push(hazelnutSpot);
-        console.log(nutPos[0]); 
-        
-        }
-
+    
     function update(): void {
         console.log("Update");
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -189,5 +189,17 @@ namespace L11_1_GoldenerHerbst_Advanced {
 
 
     }
+    //inspiriert von Eyüp Öcal
+    function createNut(_event: MouseEvent): void {
+        console.log(_event);
+        // tslint:disable-next-line: typedef
+        let nut = new Nut(new Vector (_event.offsetX, _event.offsetY));
+        moveables.push(nut);
+        let placeNut: Vector = new Vector(_event.offsetX, _event.offsetY);
+        nutPos.push(placeNut);
+        console.log(nutPos[0]); 
+        
+        }
+
 
 }

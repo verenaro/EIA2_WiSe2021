@@ -12,8 +12,8 @@ var L11_1_GoldenerHerbst_Advanced;
             if (_position)
                 this.position = _position;
             else
-                this.position = new L11_1_GoldenerHerbst_Advanced.Vector(750, 470);
-            this.velocity = new L11_1_GoldenerHerbst_Advanced.Vector(1000, 0);
+                this.position = new L11_1_GoldenerHerbst_Advanced.Vector(0, 0);
+            this.velocity = new L11_1_GoldenerHerbst_Advanced.Vector(0, 0);
         }
         move(_timeslice) {
             //console.log("Moveable move");
@@ -31,16 +31,6 @@ var L11_1_GoldenerHerbst_Advanced;
         }
         draw() {
             // console.log("Movable draw");
-        }
-        isEatenBy(_squirrel) {
-            let difference = L11_1_GoldenerHerbst_Advanced.Vector.getDifference(this.position, _squirrel.position);
-            if (this.eatRadius + _squirrel.eatRadius < difference.length)
-                return false;
-            return true;
-        }
-        eat() {
-            console.log("Eat", this);
-            this.expendable = true;
         }
     }
     L11_1_GoldenerHerbst_Advanced.Moveable = Moveable;

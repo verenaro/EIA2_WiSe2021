@@ -6,15 +6,15 @@ namespace L11_1_GoldenerHerbst_Advanced {
         public expendable: boolean = false;
         protected eatRadius: number = 0;
 
-        constructor(_position?: Vector) {
+        constructor(_position: Vector) {
             //console.log("Moveable constructor");
 
             if (_position)
                 this.position = _position;
             else
-                this.position = new Vector(750, 470);
+                this.position = new Vector(0, 0);
 
-            this.velocity = new Vector(1000, 0);
+            this.velocity = new Vector(0, 0);
 
 
         }
@@ -38,18 +38,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
             // console.log("Movable draw");
 
         }
-        public isEatenBy(_squirrel: Moveable): boolean {
-            let difference: Vector = Vector.getDifference(this.position, _squirrel.position);
-            if (this.eatRadius + _squirrel.eatRadius < difference.length)
-                return false;
-
-            return true;
-        }
-
-        public eat(): void {
-            console.log("Eat", this);
-            this.expendable = true;
-        }
+        
     }
 
 
