@@ -5,8 +5,6 @@ var L11_1_GoldenerHerbst_Advanced;
         position;
         velocity;
         size;
-        expendable = false;
-        eatRadius = 0;
         constructor(_position) {
             //console.log("Moveable constructor");
             if (_position)

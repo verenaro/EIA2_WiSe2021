@@ -15,7 +15,7 @@ var L11_1_GoldenerHerbst_Advanced;
             //Body
             L11_1_GoldenerHerbst_Advanced.crc2.beginPath();
             L11_1_GoldenerHerbst_Advanced.crc2.save();
-            L11_1_GoldenerHerbst_Advanced.crc2.translate(-100 + this.position.x, 20 + this.position.y);
+            L11_1_GoldenerHerbst_Advanced.crc2.translate(+200 + this.position.x, 40 + this.position.y);
             L11_1_GoldenerHerbst_Advanced.crc2.fillStyle = "brown";
             L11_1_GoldenerHerbst_Advanced.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L11_1_GoldenerHerbst_Advanced.crc2.arc(132, -23, 20, 0, 2 * Math.PI);
@@ -71,7 +71,7 @@ var L11_1_GoldenerHerbst_Advanced;
             //Body
             L11_1_GoldenerHerbst_Advanced.crc2.beginPath();
             L11_1_GoldenerHerbst_Advanced.crc2.save();
-            L11_1_GoldenerHerbst_Advanced.crc2.translate(this.position.x, this.position.y);
+            L11_1_GoldenerHerbst_Advanced.crc2.translate(-50 + this.position.x, this.position.y);
             L11_1_GoldenerHerbst_Advanced.crc2.fillStyle = "brown";
             L11_1_GoldenerHerbst_Advanced.crc2.arc(130, 19, 30, 0, 2 * Math.PI);
             L11_1_GoldenerHerbst_Advanced.crc2.arc(132, -23, 20, 0, 2 * Math.PI);

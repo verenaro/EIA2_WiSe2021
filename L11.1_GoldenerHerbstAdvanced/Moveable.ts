@@ -3,8 +3,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
         public position: Vector;
         public velocity: Vector;
         public size: number;
-        public expendable: boolean = false;
-        protected eatRadius: number = 0;
+       
 
         constructor(_position: Vector) {
             //console.log("Moveable constructor");
