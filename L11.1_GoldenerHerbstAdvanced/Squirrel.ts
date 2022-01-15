@@ -131,9 +131,9 @@ namespace L11_1_GoldenerHerbst_Advanced {
 
         }
 
-        private food(): void {
+      /*  private food(): void {
             console.log("Squirrel is eating");
-        }
+        }*/
 
     }
 

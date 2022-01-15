@@ -6,6 +6,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
     export let canvas: HTMLCanvasElement | null;
     let moveables: Moveable[] = [];
     let imgData: ImageData;
+    export let nutPos: Vector[] = [];
 
 
     function handleLoad(_event: Event): void {
@@ -21,7 +22,6 @@ namespace L11_1_GoldenerHerbst_Advanced {
         drawTrees(new Vector(500, 100), "orange");
         drawTrees(new Vector(700, 50), "red");
         drawTrees(new Vector(900, 70), "green");
-        drawNuts(new Vector(500, 550), new Vector(100, 50));
         drawFlower(new Vector(250, 90));
         drawFlower(new Vector(450, 100));
 
@@ -29,6 +29,7 @@ namespace L11_1_GoldenerHerbst_Advanced {
         createClouds();
         createSquirrel();
         createLeaf();
+        canvas.addEventListener("click", createNut);
         window.setInterval(update, 60);
 
 
@@ -113,32 +114,6 @@ namespace L11_1_GoldenerHerbst_Advanced {
 
     }
 
-    function drawNuts(_position: Vector, _size: Vector): void {
-        let nParticles: number = 10;
-        let radiusParticles: number = 5;
-        let particle: Path2D = new Path2D();
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
-
-        particle.arc(0, 0, radiusParticles, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "brown");
-
-
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-
-        crc2.fillStyle = gradient;
-
-        for (let drawn: number = 0; drawn < nParticles; drawn++) {
-            crc2.save();
-            let x: number = (Math.random() - 0.5) * _size.x;
-            let y: number = - (Math.random() * _size.y);
-            crc2.translate(x, y);
-            crc2.fill(particle);
-            crc2.restore();
-        }
-        crc2.restore();
-    }
-
     function drawFlower(_position: Vector): void {
         //Flower
         crc2.beginPath();
@@ -189,6 +164,16 @@ namespace L11_1_GoldenerHerbst_Advanced {
             moveables.push(leaf);
         }
     }
+    function createNut(_event: MouseEvent): void {
+        console.log(_event);
+        // tslint:disable-next-line: typedef
+        let nut = new Nut(new Vector (_event.clientX, _event.clientY));
+        moveables.push(nut);
+        let hazelnutSpot: Vector = new Vector(_event.clientX, _event.clientY);
+        nutPos.push(hazelnutSpot);
+        console.log(nutPos[0]); 
+        
+        }
 
     function update(): void {
         console.log("Update");

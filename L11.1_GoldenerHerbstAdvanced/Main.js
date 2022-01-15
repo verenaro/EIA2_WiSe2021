@@ -4,6 +4,7 @@ var L11_1_GoldenerHerbst_Advanced;
     window.addEventListener("load", handleLoad);
     let moveables = [];
     let imgData;
+    L11_1_GoldenerHerbst_Advanced.nutPos = [];
     function handleLoad(_event) {
         L11_1_GoldenerHerbst_Advanced.canvas = document.querySelector("canvas");
         L11_1_GoldenerHerbst_Advanced.crc2 = L11_1_GoldenerHerbst_Advanced.canvas.getContext("2d");
@@ -16,13 +17,13 @@ var L11_1_GoldenerHerbst_Advanced;
         drawTrees(new L11_1_GoldenerHerbst_Advanced.Vector(500, 100), "orange");
         drawTrees(new L11_1_GoldenerHerbst_Advanced.Vector(700, 50), "red");
         drawTrees(new L11_1_GoldenerHerbst_Advanced.Vector(900, 70), "green");
-        drawNuts(new L11_1_GoldenerHerbst_Advanced.Vector(500, 550), new L11_1_GoldenerHerbst_Advanced.Vector(100, 50));
         drawFlower(new L11_1_GoldenerHerbst_Advanced.Vector(250, 90));
         drawFlower(new L11_1_GoldenerHerbst_Advanced.Vector(450, 100));
         imgData = L11_1_GoldenerHerbst_Advanced.crc2.getImageData(0, 0, L11_1_GoldenerHerbst_Advanced.canvas.width, L11_1_GoldenerHerbst_Advanced.canvas.height);
         createClouds();
         createSquirrel();
         createLeaf();
+        L11_1_GoldenerHerbst_Advanced.canvas.addEventListener("click", createNut);
         window.setInterval(update, 60);
     }
     function drawBackground() {
@@ -86,26 +87,6 @@ var L11_1_GoldenerHerbst_Advanced;
         L11_1_GoldenerHerbst_Advanced.crc2.fill();
         L11_1_GoldenerHerbst_Advanced.crc2.restore();
     }
-    function drawNuts(_position, _size) {
-        let nParticles = 10;
-        let radiusParticles = 5;
-        let particle = new Path2D();
-        let gradient = L11_1_GoldenerHerbst_Advanced.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticles);
-        particle.arc(0, 0, radiusParticles, 0, 2 * Math.PI);
-        gradient.addColorStop(0, "brown");
-        L11_1_GoldenerHerbst_Advanced.crc2.save();
-        L11_1_GoldenerHerbst_Advanced.crc2.translate(_position.x, _position.y);
-        L11_1_GoldenerHerbst_Advanced.crc2.fillStyle = gradient;
-        for (let drawn = 0; drawn < nParticles; drawn++) {
-            L11_1_GoldenerHerbst_Advanced.crc2.save();
-            let x = (Math.random() - 0.5) * _size.x;
-            let y = -(Math.random() * _size.y);
-            L11_1_GoldenerHerbst_Advanced.crc2.translate(x, y);
-            L11_1_GoldenerHerbst_Advanced.crc2.fill(particle);
-            L11_1_GoldenerHerbst_Advanced.crc2.restore();
-        }
-        L11_1_GoldenerHerbst_Advanced.crc2.restore();
-    }
     function drawFlower(_position) {
         //Flower
         L11_1_GoldenerHerbst_Advanced.crc2.beginPath();
@@ -148,6 +129,15 @@ var L11_1_GoldenerHerbst_Advanced;
             let leaf = new L11_1_GoldenerHerbst_Advanced.Leaf(0.5, new L11_1_GoldenerHerbst_Advanced.Vector(200, 500));
             moveables.push(leaf);
         }
+    }
+    function createNut(_event) {
+        console.log(_event);
+        // tslint:disable-next-line: typedef
+        let nut = new L11_1_GoldenerHerbst_Advanced.Nut(new L11_1_GoldenerHerbst_Advanced.Vector(_event.clientX, _event.clientY));
+        moveables.push(nut);
+        let hazelnutSpot = new L11_1_GoldenerHerbst_Advanced.Vector(_event.clientX, _event.clientY);
+        L11_1_GoldenerHerbst_Advanced.nutPos.push(hazelnutSpot);
+        console.log(L11_1_GoldenerHerbst_Advanced.nutPos[0]);
     }
     function update() {
         console.log("Update");
